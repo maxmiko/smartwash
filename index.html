@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SmartWash — редизайн: 3 варианта</title>
+<link rel="stylesheet" href="assets/base.css" />
+<style>
+  body { background: var(--bw-bg); }
+  .hub-top {
+    background:
+      radial-gradient(120% 140% at 85% -10%, rgba(22,181,230,.18), transparent 55%),
+      linear-gradient(180deg, #0b2741, #0e1f2e);
+    color: #fff;
+    padding: 72px 0 56px;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; letter-spacing: .03em;
+    color: #aee3f6;
+    background: rgba(22,181,230,.12);
+    border: 1px solid rgba(22,181,230,.25);
+    padding: 7px 14px; border-radius: 999px;
+  }
+  .hub-top h1 { font-size: clamp(34px, 5vw, 56px); margin: 22px 0 16px; max-width: 16ch; }
+  .hub-top p.lead { font-size: 19px; color: #c4d4e2; max-width: 60ch; line-height: 1.6; }
+
+  .panel-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; margin-top: 44px; }
+  @media (max-width: 900px){ .panel-grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--bw-card); border: 1px solid var(--bw-line);
+    border-radius: var(--bw-r-lg); padding: 28px; box-shadow: var(--bw-shadow);
+  }
+  .card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--bw-blue); margin-bottom: 18px; font-weight: 700; }
+  .alist { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .alist li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: 15px; color: var(--bw-muted); line-height: 1.5; }
+  .alist li b { color: var(--bw-ink); font-weight: 700; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--bw-cyan); margin-top: 8px; }
+
+  .swatches { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+  .sw { width: 58px; height: 58px; border-radius: 12px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); position: relative; }
+  .sw span { position: absolute; left: 0; right: 0; bottom: -20px; text-align: center; font-size: 11px; color: var(--bw-muted); font-family: ui-monospace, Menlo, monospace; }
+
+  .variants { padding: 64px 0 80px; }
+  .variants > .bw-wrap > h2 { font-size: 30px; margin-bottom: 8px; }
+  .variants > .bw-wrap > p { color: var(--bw-muted); margin-bottom: 36px; font-size: 16px; }
+  .vgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 940px){ .vgrid { grid-template-columns: 1fr; } }
+  .vcard {
+    background: var(--bw-card); border: 1px solid var(--bw-line); border-radius: var(--bw-r-lg);
+    overflow: hidden; box-shadow: var(--bw-shadow); display: flex; flex-direction: column;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .vcard:hover { transform: translateY(-4px); box-shadow: var(--bw-shadow-lg); }
+  .vthumb { aspect-ratio: 4/3; border-bottom: 1px solid var(--bw-line); position: relative; overflow: hidden; }
+  .vbody { padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .vnum { font-size: 12px; font-weight: 700; letter-spacing: .12em; color: var(--bw-blue); text-transform: uppercase; }
+  .vbody h3 { font-size: 21px; }
+  .vbody p { font-size: 14.5px; color: var(--bw-muted); line-height: 1.55; flex: 1; }
+  .vbtn {
+    display: inline-flex; align-items: center; gap: 9px; align-self: flex-start;
+    background: var(--bw-blue); color: #fff; font-weight: 700; font-size: 14.5px;
+    padding: 12px 20px; border-radius: 999px; transition: background .2s;
+  }
+  .vbtn:hover { background: var(--bw-blue-dark); }
+  .vbtn svg { transition: transform .2s; }
+  .vcard:hover .vbtn svg { transform: translateX(3px); }
+
+  /* mini mock thumbnails */
+  .mock { position: absolute; inset: 0; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .mbar { height: 9px; border-radius: 4px; background: rgba(14,31,46,.1); }
+  .note { margin-top: 40px; font-size: 13.5px; color: var(--bw-muted); background: #fff7ed; border: 1px solid #fde9cf; border-radius: var(--bw-r); padding: 16px 18px; display: flex; gap: 12px; }
+  .note b { color: #9a5b16; }
+</style>
+</head>
+<body>
+
+<header class="hub-top">
+  <div class="bw-wrap">
+    <span class="badge">● Редизайн · 3 варианта на выбор</span>
+    <h1>SmartWash — аккуратный апгрейд сайта</h1>
+    <p class="lead">Бесконтактная автомойка самообслуживания в Риге, 24/7, на оборудовании EHRLE. Ниже — три направления: от «то же, но чище» до более смелых идей. Синяя гамма + красный акцент EHRLE и реальные фото во всех трёх.</p>
+
+    <div class="panel-grid">
+      <div class="card">
+        <h2>Что учтено</h2>
+        <ul class="alist">
+          <li><span class="dot"></span><span>Гамма взята <b>с вашего сайта</b>: синий — основной, <b style="color:var(--bw-red)">красный</b> (EHRLE) — акцент, белый фон. Шрифт — <b>Manrope</b>.</span></li>
+          <li><span class="dot"></span><span>Вставлены <b>ваши реальные фото</b> — мойка, станция, терминал и панель управления вместо плейсхолдеров.</span></li>
+          <li><span class="dot"></span><span>5 программ и телефон сверены <b>по фото панели</b>: Sākotnējā mazgāšana → Mazgāšana → Skalošana → Vaskošana → Spodrināšana.</span></li>
+          <li><span class="dot"></span><span>Контент на <b>латышском</b>, объём — <b>главная страница</b>. Остальные добавлю по тому же стилю после вашего ОК.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Гамма и типографика</h2>
+        <div class="swatches">
+          <div class="sw" style="background:#2767dd"><span>blue</span></div>
+          <div class="sw" style="background:#1d51b6"><span>dark</span></div>
+          <div class="sw" style="background:#d81e26"><span>red</span></div>
+          <div class="sw" style="background:#13202e"><span>ink</span></div>
+          <div class="sw" style="background:#f5f8fc"><span>bg</span></div>
+        </div>
+        <p style="margin-top:34px; font-size:14.5px; color:var(--bw-muted); line-height:1.6;">Синий + <b style="color:var(--bw-red)">красный</b> EHRLE + белый — как на сайте. Если пришлёте <b style="color:var(--bw-ink)">вектор логотипа</b> и точные цены, подставлю их вместо текущего значка-капли и примерных сумм.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="variants">
+  <div class="bw-wrap">
+    <h2>Три варианта</h2>
+    <p>Откройте каждый, пролистайте, сравните. Все на одной гамме — можно смешивать решения.</p>
+
+    <div class="vgrid">
+
+      <article class="vcard">
+        <div class="vthumb" style="background:linear-gradient(160deg,#eaf2f9,#dceaf6)">
+          <div class="mock">
+            <div class="mbar" style="width:38%;background:var(--bw-blue);height:11px"></div>
+            <div class="mbar" style="width:80%;margin-top:6px"></div>
+            <div class="mbar" style="width:62%"></div>
+            <div style="flex:1;border-radius:10px;background:rgba(10,98,176,.12);margin-top:6px"></div>
+            <div style="display:flex;gap:8px"><div class="mbar" style="flex:1;height:26px;border-radius:8px"></div><div class="mbar" style="flex:1;height:26px;border-radius:8px"></div><div class="mbar" style="flex:1;height:26px;border-radius:8px"></div></div>
+          </div>
+        </div>
+        <div class="vbody">
+          <span class="vnum">Вариант 1</span>
+          <h3>Косметика</h3>
+          <p>То же, что сейчас — только аккуратно: ровные отступы, единая сетка, читаемые заголовки, нормальные кнопки и карточки. Минимум риска, максимум «стало чище».</p>
+          <a class="vbtn" href="variants/v1-refined.html">Открыть <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="vcard">
+        <div class="vthumb" style="background:linear-gradient(160deg,#e7f6fc,#d2ecf7)">
+          <div class="mock">
+            <div style="display:flex;gap:8px;align-items:center"><div class="mbar" style="width:30px;height:11px;background:var(--bw-blue)"></div><div class="mbar" style="flex:1;height:7px"></div></div>
+            <div style="flex:1;border-radius:12px;background:linear-gradient(135deg,var(--bw-blue),var(--bw-cyan));margin-top:4px"></div>
+            <div style="display:flex;gap:8px"><div style="flex:1;height:34px;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)"></div><div style="flex:1;height:34px;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)"></div></div>
+          </div>
+        </div>
+        <div class="vbody">
+          <span class="vnum">Вариант 2</span>
+          <h3>Современный</h3>
+          <p>Крупный визуальный герой, понятная «лента» процесса мойки шаг-за-шагом, карточки преимуществ с иконками, заметные CTA. Свежо, но без перегруза.</p>
+          <a class="vbtn" href="variants/v2-modern.html">Открыть <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="vcard">
+        <div class="vthumb" style="background:linear-gradient(180deg,#ffffff,#eaf2fb)">
+          <div class="mock">
+            <div class="mbar" style="width:34%;height:11px;background:var(--bw-blue)"></div>
+            <div class="mbar" style="width:74%"></div>
+            <div style="flex:1;border-radius:12px;background:#fff;box-shadow:0 4px 14px rgba(39,103,221,.12);position:relative;overflow:hidden">
+              <span style="position:absolute;width:42px;height:42px;border-radius:50% 50% 50% 6px;transform:rotate(-12deg);background:linear-gradient(150deg,var(--bw-cyan),var(--bw-blue));top:14px;left:16px;opacity:.85"></span>
+              <span style="position:absolute;width:30px;height:30px;border-radius:50%;border:2px solid rgba(39,103,221,.25);bottom:16px;right:24px"></span>
+            </div>
+            <svg viewBox="0 0 300 22" preserveAspectRatio="none" style="width:100%;height:18px;display:block"><path d="M0,11 C60,22 120,2 180,10 C240,17 270,4 300,11 L300,22 L0,22 Z" fill="var(--bw-blue)"></path></svg>
+          </div>
+        </div>
+        <div class="vbody">
+          <span class="vnum">Вариант 3</span>
+          <h3>Волны и капли</h3>
+          <p>Светлый, в духе оригинала: волнистые разделители секций, капли и пузырьки (вода + чистота), блок «EHRLE MultiTerminal». Самый «брендовый» и игривый.</p>
+          <a class="vbtn" href="variants/v3-premium.html">Открыть <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="note">
+      <span>⚑</span>
+      <span><b>Следующий шаг:</b> если есть — пришлите вектор логотипа и точные цены программ; подставлю их вместо текущего значка и примерных сумм. Скажите, какой вариант ближе — доведу его до финала и добавлю остальные страницы.</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
