@@ -74,8 +74,8 @@ p{margin:0}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.02em}
 .logo .drop{width:30px;height:30px;border-radius:50% 50% 50% 4px;background:linear-gradient(150deg,var(--bw-cyan),var(--bw-blue));transform:rotate(-12deg);box-shadow:0 5px 12px rgba(39,103,221,.32);flex:none}
 .logo b{color:var(--bw-red)}
-.v3-nav nav{display:flex;gap:24px;margin-left:auto;font-size:15px;font-weight:600;color:var(--bw-muted)}
-.v3-nav nav a:hover{color:var(--bw-blue)}
+.v3-nav .row nav{display:flex;gap:24px;margin-left:auto;font-size:15px;font-weight:600;color:var(--bw-muted)}
+.v3-nav .row nav a:hover{color:var(--bw-blue)}
 .langs{display:flex;gap:4px;align-items:center;font-size:14px;font-weight:700}
 .langs a{padding:6px 9px;border-radius:8px;color:var(--bw-muted)}
 .langs a[aria-current="true"]{background:var(--bw-cyan-soft);color:var(--bw-blue)}
@@ -88,7 +88,22 @@ p{margin:0}
 .btn-white{background:#fff;color:var(--bw-blue);padding:15px 30px;font-size:16px}
 .btn-white:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.2)}
 .nav-cta{margin-left:8px}
-@media (max-width:760px){.v3-nav nav{display:none}.nav-cta{display:none}}
+@media (max-width:760px){.v3-nav .row nav{display:none}.nav-cta{display:none}.langs{margin-left:auto}}
+.burger{display:none;flex-direction:column;gap:5px;width:42px;height:42px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer;padding:0;margin-left:6px}
+.burger span{display:block;width:24px;height:2.5px;background:var(--bw-ink);border-radius:2px;transition:transform .3s,opacity .25s}
+.v3-nav[data-open] .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.v3-nav[data-open] .burger span:nth-child(2){opacity:0}
+.v3-nav[data-open] .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobnav{display:flex;flex-direction:column;overflow:hidden;max-height:0;background:var(--bw-card);border-top:1px solid var(--bw-line);box-shadow:0 18px 30px rgba(0,0,0,.08);transition:max-height .32s ease}
+.v3-nav[data-open] .mobnav{max-height:88vh}
+.mobnav a{padding:14px 22px;font-size:16px;font-weight:600;color:var(--bw-ink);border-bottom:1px solid var(--bw-line)}
+.mobnav a:hover{background:rgba(39,103,221,.05)}
+.mobnav .btn{margin:14px 22px;justify-content:center;text-align:center}
+@media (min-width:761px){.mobnav{display:none}.burger{display:none!important}}
+@media (max-width:760px){.burger{display:flex}}
+.totop{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:var(--bw-blue);color:#fff;border:0;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 22px rgba(39,103,221,.42);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,transform .25s,visibility .25s;z-index:70}
+.totop.show{opacity:1;visibility:visible;transform:translateY(0)}
+.totop:hover{background:var(--bw-blue-700)}
 .dewdrop{position:absolute;border-radius:50% 50% 50% 0;transform:rotate(45deg);background:linear-gradient(155deg,var(--bw-cyan),var(--bw-blue));opacity:.12;pointer-events:none}
 .bubble{position:absolute;border-radius:50%;border:2px solid rgba(39,103,221,.16);pointer-events:none}
 .bubble.fill{background:rgba(39,103,221,.06);border:0}
@@ -299,7 +314,17 @@ footer a:hover{color:#fff;text-decoration:underline}
       <a href="../en/" aria-current="true" hreflang="en">EN</a>
     </div>
     <a class="btn btn-primary nav-cta" href="#pricing">See prices</a>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav"><span></span><span></span><span></span></button>
   </div>
+  <nav class="mobnav" id="mobnav" aria-label="Mobile navigation">
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="#mt">MultiTerminal</a>
+    <a href="#abonements">Subscription</a>
+    <a href="#pricing">Prices</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary" href="#pricing">See prices</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -590,6 +615,8 @@ footer a:hover{color:#fff;text-decoration:underline}
   </div>
 </footer>
 
+<button class="totop" id="totop" type="button" aria-label="To top"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+
 <script>
 (function(){
   var heads=document.querySelectorAll('.steps .pstep-head');
@@ -603,6 +630,22 @@ footer a:hover{color:#fff;text-decoration:underline}
       if(!open){li.setAttribute('data-open','');btn.setAttribute('aria-expanded','true');}
     });
   });
+  var nav=document.querySelector('.v3-nav'), burger=document.querySelector('.burger');
+  if(nav&&burger){
+    burger.addEventListener('click',function(){
+      var open=nav.toggleAttribute('data-open');
+      burger.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.querySelectorAll('.mobnav a').forEach(function(a){
+      a.addEventListener('click',function(){nav.removeAttribute('data-open');burger.setAttribute('aria-expanded','false');});
+    });
+  }
+  var totop=document.querySelector('.totop');
+  if(totop){
+    var onScroll=function(){totop.classList.toggle('show',window.scrollY>600);};
+    window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+    totop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
 })();
 </script>
 </body>
