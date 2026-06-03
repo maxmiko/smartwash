@@ -123,6 +123,7 @@ p{margin:0}
 .v3-hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center}
 @media (max-width:920px){.v3-hero .grid{grid-template-columns:1fr}}
 .v3-hero .eyebrow{background:#fff;border:1px solid var(--bw-line);padding:8px 15px;border-radius:999px;box-shadow:var(--bw-shadow)}
+.eb-ehrle{height:13px;width:auto;display:inline-block;vertical-align:middle;position:relative;top:-1px}
 .v3-hero h1{font-size:clamp(38px,5.4vw,64px);margin:22px 0 18px;line-height:1.02}
 .v3-hero h1 em{font-style:normal;color:var(--bw-blue)}
 .v3-hero p.lead{font-size:19px;color:var(--bw-muted);max-width:46ch;line-height:1.6}
@@ -146,15 +147,24 @@ p{margin:0}
 .about ul li .tick{width:22px;height:22px;border-radius:50%;background:var(--bw-cyan-soft);color:var(--bw-blue);display:grid;place-items:center;margin-top:2px}
 
 /* ===== Process ===== */
-.pwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.pwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
 @media (max-width:920px){.pwrap{grid-template-columns:1fr}}
 .pwrap .photo{aspect-ratio:4/3.4;border-radius:22px;overflow:hidden;box-shadow:var(--bw-shadow);border:5px solid #fff}
-.steps{display:grid;gap:14px}
-.pstep{display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:center;background:#fff;border:1px solid var(--bw-line);border-radius:16px;padding:16px 20px;box-shadow:var(--bw-shadow);transition:transform .2s}
-.pstep:hover{transform:translateX(5px)}
+.steps{display:grid;gap:14px;list-style:none;padding:0;margin:0}
+.pstep{background:#fff;border:1px solid var(--bw-line);border-radius:16px;box-shadow:var(--bw-shadow);overflow:hidden;transition:border-color .2s}
+.pstep[data-open]{border-color:var(--bw-blue)}
+.pstep-head{display:grid;grid-template-columns:46px 1fr 20px;gap:18px;align-items:center;width:100%;background:none;border:0;text-align:left;padding:16px 20px;cursor:pointer;color:inherit;font-family:inherit}
+.pstep-head:hover{background:rgba(39,103,221,.04)}
 .pstep .dnum{width:46px;height:46px;border-radius:50% 50% 50% 6px;background:linear-gradient(150deg,var(--bw-cyan),var(--bw-blue));color:#fff;font-weight:800;font-size:19px;display:grid;place-items:center;transform:rotate(-8deg)}
-.pstep .dnum span{transform:rotate(8deg)}
-.pstep h3{font-size:17px}.pstep p{font-size:13.5px;color:var(--bw-muted)}
+.pstep .dnum span{transform:rotate(8deg);display:block}
+.pstep-title{display:block;font-size:17px;font-weight:700}
+.pstep-lead{display:block;font-size:13.5px;color:var(--bw-muted);margin-top:3px;line-height:1.45}
+.pstep-chev{color:var(--bw-muted);transition:transform .3s,color .3s;justify-self:end}
+.pstep[data-open] .pstep-chev{transform:rotate(180deg);color:var(--bw-blue)}
+.pstep-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease}
+.pstep[data-open] .pstep-body{grid-template-rows:1fr}
+.pstep-body-in{overflow:hidden}
+.pstep-body-in p{margin:0;padding:2px 20px 18px 84px;font-size:14px;color:var(--bw-muted);line-height:1.6}
 
 /* ===== MultiTerminal ===== */
 .mt{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
@@ -207,18 +217,30 @@ footer{background:#0b1622;color:#9fb3c4;padding:56px 0 30px}
 footer .logo{color:#fff;margin-bottom:14px}
 footer p{font-size:14px;line-height:1.6;max-width:34ch}
 footer h2.fh{color:#fff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 16px;font-weight:700}
+.foot-ehrle{height:30px;width:auto;display:block;margin:0 0 14px}
 footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:14px}
 footer a:hover{color:#fff;text-decoration:underline}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:38px;padding-top:22px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .foot-bottom a:hover{color:#fff}
+.cta-addr{display:inline-flex;align-items:center;gap:10px;font-size:21px;font-weight:700;color:#fff;margin:0 0 24px;flex-wrap:wrap;justify-content:center}
+.cta-addr svg{flex:none}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);padding:15px 28px;font-size:16px}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.map-sec{border-radius:16px;overflow:hidden;margin-bottom:40px;border:1px solid rgba(255,255,255,.1);line-height:0}
+.map-sec iframe{display:block;width:100%;height:340px;border:0}
+.foot-reqs{color:#6f8497;font-size:12.5px;line-height:1.6;margin-top:14px;max-width:34ch}
 
 /* ===== Announcement bar ===== */
-.promobar{display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;background:linear-gradient(90deg,var(--bw-red),var(--bw-red-dark));color:#fff;font-weight:700;font-size:14px;padding:9px 16px;line-height:1.3}
+.promobar{display:flex;align-items:center;justify-content:center;gap:11px;text-align:center;background:linear-gradient(90deg,var(--bw-red),var(--bw-red-dark));color:#fff;font-weight:600;font-size:14px;padding:10px 16px;line-height:1.3;letter-spacing:.01em;transition:background .2s}
+.promobar strong{color:#fff;font-weight:800}
+.promobar .pb-badge{display:inline-flex;align-items:center;background:#fff;color:var(--bw-red);font-weight:800;font-size:13px;letter-spacing:.02em;padding:3px 10px;border-radius:999px;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.promobar .pb-sub{color:rgba(255,255,255,.82);font-weight:600}
 .promobar:hover{background:var(--bw-red-dark)}
 .promobar .arrow{transition:transform .2s}
 .promobar:hover .arrow{transform:translateX(3px)}
 .promobar svg{flex:none}
-@media (max-width:480px){.promobar{font-size:12.5px;gap:7px;padding:8px 12px}}
+@media (max-width:480px){.promobar{font-size:12.5px;gap:8px;padding:9px 12px}.promobar .pb-sub{display:none}}
 /* ===== Subscription promo ===== */
 .promo{background:linear-gradient(135deg,#0c1a2b,#122237);color:#fff;overflow:hidden}
 .promo .eyebrow{color:#ff6b6b}
@@ -238,6 +260,15 @@ footer a:hover{color:#fff;text-decoration:underline}
 .promo-off{position:relative;width:min(280px,72vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff5057,var(--bw-red) 58%,var(--bw-red-dark));display:grid;place-content:center;text-align:center;color:#fff;box-shadow:0 24px 60px rgba(216,30,38,.45),inset 0 2px 12px rgba(255,255,255,.25);border:6px solid rgba(255,255,255,.1)}
 .promo-off b{font-size:clamp(46px,9vw,74px);line-height:1;letter-spacing:-.04em;display:block}
 .promo-off span{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:8px;display:block;opacity:.95}
+.promo-apps{margin-top:24px}
+.promo-apps-label{display:block;font-size:14px;color:#b9c6d4;margin-bottom:11px}
+.promo-apps-label strong{color:#fff;font-weight:700}
+.store-row{display:flex;gap:11px;flex-wrap:wrap}
+.store-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0c1a2b;border-radius:12px;padding:8px 16px 8px 13px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s,box-shadow .15s}
+.store-btn:hover{transform:translateY(-2px);box-shadow:0 11px 26px rgba(0,0,0,.4)}
+.store-btn svg{flex:none}
+.store-btn span{display:flex;flex-direction:column;line-height:1.08;font-size:16px;font-weight:700}
+.store-btn small{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.62}
 .btn-red{background:var(--bw-red);color:#fff;padding:14px 26px;font-size:15px}
 .btn-red:hover{background:var(--bw-red-dark);transform:translateY(-2px);box-shadow:0 12px 26px rgba(216,30,38,.4)}
 </style>
@@ -281,7 +312,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 <body>
 <a class="skip" href="#main">Pāriet uz saturu</a>
 
-<a class="promobar" href="#abonements"><svg width="18" height="11" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M11 12c0-4 6-4 9 0s9 4 9 0-6-4-9 0-9 4-9 0z"/></svg><span>Bezlimita abonements — pirmo mēnesi −50%</span><svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg></a>
+<a class="promobar" href="#abonements"><span>Bezlimita auto mazgāšanas <strong>abonements</strong></span><span class="pb-badge">−50%</span><span class="pb-sub">pirmajā mēnesī</span><svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg></a>
 
 <header class="v3-nav">
   <div class="bw-wrap row">
@@ -313,9 +344,9 @@ footer a:hover{color:#fff;text-decoration:underline}
   <span class="bubble" style="width:26px;height:26px;top:90px;left:40%" aria-hidden="true"></span>
   <div class="bw-wrap grid">
     <div>
-      <span class="eyebrow">Bezkontakta · EHRLE · 24/7</span>
+      <span class="eyebrow">Bezkontakta · <img class="eb-ehrle" src="assets/img/ehrle.png" width="42" height="13" alt="EHRLE" decoding="async"> · 24/7</span>
       <h1 id="hero-h">Tava auto <em>spīdums</em> — viens, divi, tīrs!</h1>
-      <p class="lead">Ātri, ērti un droši automašīnas lakai. Pašapkalpošanās automazgātava Rīgā, atvērta visu diennakti.</p>
+      <p class="lead"><strong>5 secīgas programmas</strong> rūpīgai mazgāšanai — ātri, ērti un droši tavas auto lakai. Pašapkalpošanās automazgātava Rīgā, atvērta visu diennakti.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#pricing">Cenas un programmas</a>
         <a class="btn btn-ghost" href="#process">Kā tas darbojas →</a>
@@ -337,7 +368,47 @@ footer a:hover{color:#fff;text-decoration:underline}
       <div class="hero-badge"><span class="b-drop" aria-hidden="true"></span><div><b>Maksā par laiku</b><small>Displejs rāda atlikušo laiku</small></div></div>
     </div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,32 C240,72 480,4 720,28 C960,52 1200,8 1440,36 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,32 C240,72 480,4 720,28 C960,52 1200,8 1440,36 L1440,70 L0,70 Z" fill="#0c1a2b"></path></svg>
+</section>
+
+<!-- SUBSCRIPTION PROMO -->
+<section class="sec promo" id="abonements" aria-labelledby="promo-h">
+  <span class="bubble" style="width:90px;height:90px;top:50px;right:6%;border-color:rgba(255,255,255,.12)" aria-hidden="true"></span>
+  <span class="bubble" style="width:50px;height:50px;bottom:60px;left:10%;border-color:rgba(255,255,255,.1)" aria-hidden="true"></span>
+  <div class="bw-wrap promo-grid">
+    <div>
+      <span class="eyebrow">Abonements</span>
+      <h2 id="promo-h">Bezlimita auto mazgāšanas abonements</h2>
+      <p class="lead">Mazgā auto tik bieži, cik vēlies — par fiksētu mēneša maksu. Kamera atpazīst tavu numuru, un mazgāšana sākas automātiski. Uzņēmumiem un privātpersonām.</p>
+      <ul class="promo-list">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Bezlimits mazgāšana 24/7</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Automātiska numura atpazīšana — iebrauc un mazgā</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Atskaites un kartes uzņēmumiem</li>
+      </ul>
+      <div class="promo-flow" role="list">
+        <span class="chip" role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8h3l1.5-2h5L19 8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="11" cy="13" r="3"/></svg>Kamera</span><svg class="sep" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg><span class="chip" role="listitem"><svg width="18" height="13" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="12" rx="2"/><path d="M6 6v4M10 6v4M14 8h4"/></svg>AB-2344</span><svg class="sep" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg><span class="chip" role="listitem"><svg width="20" height="13" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M11 12c0-4 6-4 9 0s9 4 9 0-6-4-9 0-9 4-9 0z"/></svg>Bezlimits</span>
+      </div>
+      <a class="btn btn-red" href="mailto:info@smartwash.lv?subject=Pieteikums%20bezlimita%20abonementam">Pieteikties abonementam</a>
+      <div class="promo-apps">
+        <span class="promo-apps-label">Lejupielādē lietotni <strong>easy wash</strong> un sāc mazgāt uzreiz:</span>
+        <div class="store-row">
+          <a class="store-btn" href="https://apps.apple.com/lv/app/easy-wash/id1440643365" target="_blank" rel="noopener" aria-label="Lejupielādēt App Store">
+            <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.77 2.26-4.1 2.36-4.16-1.29-1.88-3.29-2.14-4-2.17-1.7-.17-3.32 1-4.18 1-.86 0-2.19-.98-3.6-.95-1.85.03-3.56 1.08-4.51 2.73-1.93 3.35-.49 8.3 1.38 11.02.91 1.33 2 2.82 3.42 2.77 1.37-.05 1.89-.89 3.55-.89 1.65 0 2.12.89 3.57.86 1.47-.02 2.4-1.35 3.3-2.69 1.04-1.54 1.47-3.03 1.49-3.11-.03-.01-2.86-1.1-2.89-4.35M14.28 4.13c.76-.92 1.27-2.2 1.13-3.47-1.09.04-2.41.72-3.19 1.64-.7.81-1.31 2.11-1.15 3.35 1.21.09 2.45-.62 3.21-1.52"/></svg>
+            <span><small>Lejupielādē</small>App Store</span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.easywash" target="_blank" rel="noopener" aria-label="Pieejams Google Play">
+            <svg viewBox="0 0 512 512" width="20" height="22" aria-hidden="true"><path fill="#00d3ff" d="M48.6 28.3A23.6 23.6 0 0 0 43 44.6v422.8a23.6 23.6 0 0 0 5.6 16.3l1.4 1.4L287.9 257.4v-2.8L50 26.9z"/><path fill="#ffce00" d="M367 336.7l-79.1-79.3v-2.8L367 175.3l1.8 1L462.5 230c26.7 15.1 26.7 40 0 55.2l-93.7 53.2z"/><path fill="#00f076" d="M368.8 335.7L287.9 256 48.6 495.4c8.8 9.3 23.3 10.5 39.7 1.2l280.5-160.9"/><path fill="#ff3a44" d="M368.8 176.3L88.3 15.5C71.9 6.1 57.4 7.3 48.6 16.6L287.9 256z"/></svg>
+            <span><small>Pieejams</small>Google Play</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="promo-visual">
+      <svg class="promo-inf" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" aria-hidden="true"><path d="M60 50c0-18 28-18 40 0s40 18 40 0-28-18-40 0-40 18-40 0z"/></svg>
+      <div class="promo-off"><b>−50%</b><span>pirmo mēnesi</span></div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,40 C360,4 540,64 900,36 C1140,18 1260,58 1440,30 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
 </section>
 
 <!-- ABOUT -->
@@ -381,12 +452,27 @@ footer a:hover{color:#fff;text-decoration:underline}
           <img class="bw-img" src="assets/img/panel.jpg" width="800" height="600" alt="EHRLE vadības panelis ar 5 mazgāšanas programmām" loading="lazy" decoding="async">
         </picture>
       </div>
-      <ol class="steps" style="list-style:none;padding:0;margin:0">
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>1</span></div><div><h3>Sākotnējā mazgāšana</h3><p>Ar EHRLE Active Foam putām — mīkstina netīrumus.</p></div></li>
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>2</span></div><div><h3>Mazgāšana</h3><p>ActivePower Pearl MikroPulveris, augsts spiediens.</p></div></li>
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>3</span></div><div><h3>Skalošana</h3><p>Ar tīru ūdeni no augšas uz leju.</p></div></li>
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>4</span></div><div><h3>Vaskošana</h3><p>Ar UltraProtection karsto vasku.</p></div></li>
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>5</span></div><div><h3>Spodrināšana</h3><p>Ar SuperFinish un demineralizētu ūdeni.</p></div></li>
+      <ol class="steps">
+        <li class="pstep" data-open>
+          <button class="pstep-head" type="button" aria-expanded="true" aria-controls="ps1"><span class="dnum" aria-hidden="true"><span>1</span></span><span><span class="pstep-title">Aktīvās putas</span><span class="pstep-lead">Uzklāj ar putu pistoli — vienmērīgi pārklāj auto un atmiekšķē netīrumus.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps1"><div class="pstep-body-in"><p>Aktīvās putas iedarbojas uz visu virsmu vienlaikus un dziļi atmiekšķē netīrumus, tāpēc tālākā mazgāšana ir efektīvāka un saudzīgāka lakai.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps2"><span class="dnum" aria-hidden="true"><span>2</span></span><span><span class="pstep-title">Mazgāšana ar MikroPulveri</span><span class="pstep-lead">MikroPulveris un siltais ūdens noņem pat noturīgākos netīrumus — bez birstēm, droši lakai.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps2"><div class="pstep-body-in"><p>MikroPulveris balstās uz aktīvo molekulu īpašo formulu un noņem pat visnoturīgākos netīrumus bez birstēm. Svarīgi: mazgāšanas līdzeklim uz auto nedrīkst ļaut izžūt.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps3"><span class="dnum" aria-hidden="true"><span>3</span></span><span><span class="pstep-title">Skalošana</span><span class="pstep-lead">Ar tīru, mīkstinātu ūdeni — sāls tabletes novērš traipu un notecējumu pēdas.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps3"><div class="pstep-body-in"><p>Speciālās sāls tabletes uztur ūdens mīkstināšanas bloka efektivitāti un nodrošina atbilstoši mīkstinātu ūdeni — tas ir īpaši svarīgi augsti kvalitatīvai mazgāšanai un novērš traipus.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps4"><span class="dnum" aria-hidden="true"><span>4</span></span><span><span class="pstep-title">Vaskošana</span><span class="pstep-lead">Karstais vasks veido aizsargplēvi — atgrūž ūdeni un piešķir spīdumu.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps4"><div class="pstep-body-in"><p>Vasks kopā ar silto ūdeni izveido aizsargplēvīti uz virsbūves: tā atgrūž ūdeni, pasargā krāsu no netīrumiem un piešķir spīdumu — auto ilgāk paliek tīrs.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps5"><span class="dnum" aria-hidden="true"><span>5</span></span><span><span class="pstep-title">Skalošana un žāvēšana</span><span class="pstep-lead">Demineralizēts ūdens un žāvētājs — virsma izžūst bez traipiem, gatava ceļam.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps5"><div class="pstep-body-in"><p>Pēc skalošanas ar demineralizētu ūdeni mūsdienīgais žāvētājs ātri nožāvē auto. Virsmu nav obligāti jāslauka — tā paliek bez traipiem un notecējumiem, tīra un pasargāta.</p></div></div>
+        </li>
       </ol>
     </div>
   </div>
@@ -407,11 +493,13 @@ footer a:hover{color:#fff;text-decoration:underline}
     <div>
       <span class="tag-new">JAUNUMS</span>
       <h2 id="mt-h">Jaunais EHRLE MultiTerminal 5-in-1</h2>
-      <p>Ērta vadība, skaidrs displejs un norēķins ar monētām vai bezkontakta karti. Viss nepieciešamais vienā vietā.</p>
+      <p>Pirmais Baltijā — visas pēcmazgāšanas funkcijas vienā terminālī, divām vietām vienlaikus. Norēķins ar monētām vai bezkontakta karti.</p>
       <ul>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Augstspiediena bezkontakta mazgāšana</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Aktīvās putas un karstais vasks</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Norēķins: monētas un bezkontakta karte</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Jaudīgs putekļsūcējs — 3700 l/min</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Tornado sprausla salona tīrīšanai</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Auto žāvētājs — nopūš lieko ūdeni</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu kompresors — spiediena pārbaude</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu spīdums — silikona pārklājums</li>
       </ul>
     </div>
   </div>
@@ -427,7 +515,7 @@ footer a:hover{color:#fff;text-decoration:underline}
     </div>
     <div class="fgrid">
       <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="7" cy="9" r="3"/><circle cx="16" cy="7" r="2.5"/><circle cx="17" cy="15" r="3.5"/><circle cx="9" cy="16" r="2.5"/></svg></span><span class="tag">JAUNUMS</span><h3>Aktīvās putas</h3><p>Noņem pat noturīgākos netīrumus — droši lakai.</p></article>
-      <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>MikroPulveris</h3><p>Power Pearl — mikro sūklīši, nekaitīgi lakai.</p></article>
+      <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>MikroPulveris</h3><p>Īpaša aktīvo molekulu formula — noņem netīrumus, droši lakai.</p></article>
       <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 18h16M6 18V9a6 6 0 0 1 12 0v9"/></svg></span><h3>Putekļsūcējs</h3><p>Jaudīgs, ar piramīdu paklājiņu tīrīšanai.</p></article>
       <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3s5 5 5 9a5 5 0 0 1-10 0c0-4 5-9 5-9z"/></svg></span><h3>Logu šķidrums</h3><p>Pērc tieši tik, cik vajag — bez plastmasas.</p></article>
       <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></span><h3>Reālā laika displejs</h3><p>Kontrolē laiku un izmaksas mazgāšanas laikā.</p></article>
@@ -449,7 +537,7 @@ footer a:hover{color:#fff;text-decoration:underline}
     <div class="price-grid">
       <article class="price">
         <h3>Mazgāšana</h3>
-        <div class="amt">no 0,50 €<small> / intervāls</small></div>
+        <div class="amt">0,50 €<small> / 55 sek</small></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>5 secīgas programmas</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Putas, mazgāšana, skalošana</li>
@@ -463,7 +551,7 @@ footer a:hover{color:#fff;text-decoration:underline}
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Putekļsūcējs un Tornado</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Žāvētājs un riepu kompresors</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu spodrināšana</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu spīdums</li>
         </ul>
         <a class="btn btn-primary" href="#contact">Vairāk info</a>
       </article>
@@ -478,34 +566,7 @@ footer a:hover{color:#fff;text-decoration:underline}
         <a class="btn btn-ghost" href="#contact">Vairāk info</a>
       </article>
     </div>
-    <p class="price-note">Cenā iekļauts PVN 21%. Kopējā summa atkarīga no izvēlētā mazgāšanas laika.</p>
-  </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,40 C360,4 540,64 900,36 C1140,18 1260,58 1440,30 L1440,70 L0,70 Z" fill="#0c1a2b"></path></svg>
-</section>
-
-<!-- SUBSCRIPTION PROMO -->
-<section class="sec promo" id="abonements" aria-labelledby="promo-h">
-  <span class="bubble" style="width:90px;height:90px;top:50px;right:6%;border-color:rgba(255,255,255,.12)" aria-hidden="true"></span>
-  <span class="bubble" style="width:50px;height:50px;bottom:60px;left:10%;border-color:rgba(255,255,255,.1)" aria-hidden="true"></span>
-  <div class="bw-wrap promo-grid">
-    <div>
-      <span class="eyebrow">Abonements</span>
-      <h2 id="promo-h">Bezlimita auto mazgāšanas abonements</h2>
-      <p class="lead">Mazgā auto tik bieži, cik vēlies — par fiksētu mēneša maksu. Kamera atpazīst tavu numuru, un mazgāšana sākas automātiski. Uzņēmumiem un privātpersonām.</p>
-      <ul class="promo-list">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Bezlimits mazgāšana 24/7</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Automātiska numura atpazīšana — iebrauc un mazgā</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Atskaites un kartes uzņēmumiem</li>
-      </ul>
-      <div class="promo-flow" role="list">
-        <span class="chip" role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8h3l1.5-2h5L19 8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="11" cy="13" r="3"/></svg>Kamera</span><svg class="sep" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg><span class="chip" role="listitem"><svg width="18" height="13" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="12" rx="2"/><path d="M6 6v4M10 6v4M14 8h4"/></svg>AB-2344</span><svg class="sep" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg><span class="chip" role="listitem"><svg width="20" height="13" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M11 12c0-4 6-4 9 0s9 4 9 0-6-4-9 0-9 4-9 0z"/></svg>Bezlimits</span>
-      </div>
-      <a class="btn btn-red" href="mailto:info@smartwash.lv?subject=Pieteikums%20bezlimita%20abonementam">Pieteikties abonementam</a>
-    </div>
-    <div class="promo-visual">
-      <svg class="promo-inf" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" aria-hidden="true"><path d="M60 50c0-18 28-18 40 0s40 18 40 0-28-18-40 0-40 18-40 0z"/></svg>
-      <div class="promo-off"><b>−50%</b><span>pirmo mēnesi</span></div>
-    </div>
+    <p class="price-note">Vidēji mazgāšana izmaksā 2–4 €. Cenā iekļauts PVN 21%, kopējā summa atkarīga no izvēlētā mazgāšanas laika.</p>
   </div>
   <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,40 C360,4 540,64 900,36 C1140,18 1260,58 1440,30 L1440,70 L0,70 Z" fill="#2767dd"></path></svg>
 </section>
@@ -517,8 +578,13 @@ footer a:hover{color:#fff;text-decoration:underline}
   <span class="dewdrop" style="width:90px;height:90px;top:50px;right:10%;background:#fff;opacity:.1;animation:floaty 8s ease-in-out infinite" aria-hidden="true"></span>
   <div class="bw-wrap inner">
     <h2 id="cta-h">Iebrauc jebkurā laikā</h2>
-    <p>Smart Wash strādā 24/7. Firmām — atslēgas un kartes ar atskaitēm. Raksti, un mēs visu sagatavosim.</p>
-    <a class="btn btn-white" href="mailto:info@smartwash.lv">info@smartwash.lv</a>
+    <div class="cta-addr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Gunāra Astras iela 7B, Rīga · Atvērts 24/7</div>
+    <p>Smart Wash strādā 24/7 Rīgā. Uzņēmumiem — konts autoparkam, kartes un atskaites e-pastā. Raksti, un mēs visu sagatavosim.</p>
+    <div class="cta-actions">
+      <a class="btn btn-white" href="https://www.google.com/maps/dir/?api=1&destination=Gun%C4%81ra+Astras+iela+7B%2C+R%C4%ABga" target="_blank" rel="noopener">Maršruts pie mums →</a>
+      <a class="btn btn-outline-white" href="tel:+37126535316">+371 26 535 316</a>
+      <a class="btn btn-outline-white" href="mailto:info@smartwash.lv">info@smartwash.lv</a>
+    </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:48px" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#0b1622"></path></svg>
 </section>
@@ -528,10 +594,14 @@ footer a:hover{color:#fff;text-decoration:underline}
 <!-- FOOTER -->
 <footer id="contact">
   <div class="bw-wrap">
+    <div class="map-sec">
+      <iframe src="https://www.google.com/maps?q=Gun%C4%81ra+Astras+iela+7B,+R%C4%ABga&output=embed" title="Smart Wash karte — Gunāra Astras iela 7B, Rīga" width="600" height="340" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
     <div class="foot-grid">
       <div>
         <a class="logo" href="./" aria-label="Smart Wash — sākums"><span class="drop" aria-hidden="true"></span><span class="wm">Smart<b style="color:var(--bw-red)">Wash</b></span></a>
         <p>Bezkontakta pašapkalpošanās automazgātava Rīgā sadarbībā ar EHRLE.</p>
+        <p class="foot-reqs">SIA „Smart Wash” · Reģ. Nr. 40103678664 · PVN LV40103678664 · Gunāra Astras iela 7B, Rīga, LV-1082</p>
       </div>
       <nav aria-label="Kājenes navigācija">
         <h2 class="fh">Izvēlne</h2>
@@ -548,6 +618,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       </div>
       <div>
         <h2 class="fh">Partneris</h2>
+        <img class="foot-ehrle" src="assets/img/ehrle.png" width="98" height="30" alt="EHRLE — automazgātavas iekārtu ražotājs" loading="lazy" decoding="async">
         <ul><li>EHRLE — Vācija</li><li>Kvalitāte kopš 1927</li><li>VDA sertifikāts</li></ul>
       </div>
     </div>
@@ -558,5 +629,20 @@ footer a:hover{color:#fff;text-decoration:underline}
   </div>
 </footer>
 
+<script>
+(function(){
+  var heads=document.querySelectorAll('.steps .pstep-head');
+  heads.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var li=btn.parentElement, steps=li.parentElement, open=li.hasAttribute('data-open');
+      steps.querySelectorAll('.pstep[data-open]').forEach(function(o){
+        o.removeAttribute('data-open');
+        o.querySelector('.pstep-head').setAttribute('aria-expanded','false');
+      });
+      if(!open){li.setAttribute('data-open','');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+})();
+</script>
 </body>
 </html>

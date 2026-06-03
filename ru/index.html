@@ -109,6 +109,7 @@ p{margin:0}
 .v3-hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center}
 @media (max-width:920px){.v3-hero .grid{grid-template-columns:1fr}}
 .v3-hero .eyebrow{background:#fff;border:1px solid var(--bw-line);padding:8px 15px;border-radius:999px;box-shadow:var(--bw-shadow)}
+.eb-ehrle{height:13px;width:auto;display:inline-block;vertical-align:middle;position:relative;top:-1px}
 .v3-hero h1{font-size:clamp(38px,5.4vw,64px);margin:22px 0 18px;line-height:1.02}
 .v3-hero h1 em{font-style:normal;color:var(--bw-blue)}
 .v3-hero p.lead{font-size:19px;color:var(--bw-muted);max-width:46ch;line-height:1.6}
@@ -128,15 +129,24 @@ p{margin:0}
 .about ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:13px}
 .about ul li{display:grid;grid-template-columns:26px 1fr;gap:11px;font-size:16px;color:var(--bw-muted)}
 .about ul li .tick{width:22px;height:22px;border-radius:50%;background:var(--bw-cyan-soft);color:var(--bw-blue);display:grid;place-items:center;margin-top:2px}
-.pwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.pwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
 @media (max-width:920px){.pwrap{grid-template-columns:1fr}}
 .pwrap .photo{aspect-ratio:4/3.4;border-radius:22px;overflow:hidden;box-shadow:var(--bw-shadow);border:5px solid #fff}
-.steps{display:grid;gap:14px}
-.pstep{display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:center;background:#fff;border:1px solid var(--bw-line);border-radius:16px;padding:16px 20px;box-shadow:var(--bw-shadow);transition:transform .2s}
-.pstep:hover{transform:translateX(5px)}
+.steps{display:grid;gap:14px;list-style:none;padding:0;margin:0}
+.pstep{background:#fff;border:1px solid var(--bw-line);border-radius:16px;box-shadow:var(--bw-shadow);overflow:hidden;transition:border-color .2s}
+.pstep[data-open]{border-color:var(--bw-blue)}
+.pstep-head{display:grid;grid-template-columns:46px 1fr 20px;gap:18px;align-items:center;width:100%;background:none;border:0;text-align:left;padding:16px 20px;cursor:pointer;color:inherit;font-family:inherit}
+.pstep-head:hover{background:rgba(39,103,221,.04)}
 .pstep .dnum{width:46px;height:46px;border-radius:50% 50% 50% 6px;background:linear-gradient(150deg,var(--bw-cyan),var(--bw-blue));color:#fff;font-weight:800;font-size:19px;display:grid;place-items:center;transform:rotate(-8deg)}
-.pstep .dnum span{transform:rotate(8deg)}
-.pstep h3{font-size:17px}.pstep p{font-size:13.5px;color:var(--bw-muted)}
+.pstep .dnum span{transform:rotate(8deg);display:block}
+.pstep-title{display:block;font-size:17px;font-weight:700}
+.pstep-lead{display:block;font-size:13.5px;color:var(--bw-muted);margin-top:3px;line-height:1.45}
+.pstep-chev{color:var(--bw-muted);transition:transform .3s,color .3s;justify-self:end}
+.pstep[data-open] .pstep-chev{transform:rotate(180deg);color:var(--bw-blue)}
+.pstep-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease}
+.pstep[data-open] .pstep-body{grid-template-rows:1fr}
+.pstep-body-in{overflow:hidden}
+.pstep-body-in p{margin:0;padding:2px 20px 18px 84px;font-size:14px;color:var(--bw-muted);line-height:1.6}
 .mt{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 @media (max-width:920px){.mt{grid-template-columns:1fr}}
 .mt .photo{aspect-ratio:4/3.4;border-radius:22px;overflow:hidden;box-shadow:var(--bw-shadow-lg);border:5px solid #fff}
@@ -179,10 +189,19 @@ footer{background:#0b1622;color:#9fb3c4;padding:56px 0 30px}
 footer .logo{color:#fff;margin-bottom:14px}
 footer p{font-size:14px;line-height:1.6;max-width:34ch}
 footer h2.fh{color:#fff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 16px;font-weight:700}
+.foot-ehrle{height:30px;width:auto;display:block;margin:0 0 14px}
 footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:14px}
 footer a:hover{color:#fff;text-decoration:underline}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:38px;padding-top:22px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .foot-bottom a:hover{color:#fff}
+.cta-addr{display:inline-flex;align-items:center;gap:10px;font-size:21px;font-weight:700;color:#fff;margin:0 0 24px;flex-wrap:wrap;justify-content:center}
+.cta-addr svg{flex:none}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);padding:15px 28px;font-size:16px}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.map-sec{border-radius:16px;overflow:hidden;margin-bottom:40px;border:1px solid rgba(255,255,255,.1);line-height:0}
+.map-sec iframe{display:block;width:100%;height:340px;border:0}
+.foot-reqs{color:#6f8497;font-size:12.5px;line-height:1.6;margin-top:14px;max-width:34ch}
 
 /* ===== Announcement bar ===== */
 .promobar{display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;background:linear-gradient(90deg,var(--bw-red),var(--bw-red-dark));color:#fff;font-weight:700;font-size:14px;padding:9px 16px;line-height:1.3}
@@ -210,6 +229,15 @@ footer a:hover{color:#fff;text-decoration:underline}
 .promo-off{position:relative;width:min(280px,72vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff5057,var(--bw-red) 58%,var(--bw-red-dark));display:grid;place-content:center;text-align:center;color:#fff;box-shadow:0 24px 60px rgba(216,30,38,.45),inset 0 2px 12px rgba(255,255,255,.25);border:6px solid rgba(255,255,255,.1)}
 .promo-off b{font-size:clamp(46px,9vw,74px);line-height:1;letter-spacing:-.04em;display:block}
 .promo-off span{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:8px;display:block;opacity:.95}
+.promo-apps{margin-top:24px}
+.promo-apps-label{display:block;font-size:14px;color:#b9c6d4;margin-bottom:11px}
+.promo-apps-label strong{color:#fff;font-weight:700}
+.store-row{display:flex;gap:11px;flex-wrap:wrap}
+.store-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0c1a2b;border-radius:12px;padding:8px 16px 8px 13px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s,box-shadow .15s}
+.store-btn:hover{transform:translateY(-2px);box-shadow:0 11px 26px rgba(0,0,0,.4)}
+.store-btn svg{flex:none}
+.store-btn span{display:flex;flex-direction:column;line-height:1.08;font-size:16px;font-weight:700}
+.store-btn small{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.62}
 .btn-red{background:var(--bw-red);color:#fff;padding:14px 26px;font-size:15px}
 .btn-red:hover{background:var(--bw-red-dark);transform:translateY(-2px);box-shadow:0 12px 26px rgba(216,30,38,.4)}
 </style>
@@ -284,9 +312,9 @@ footer a:hover{color:#fff;text-decoration:underline}
   <span class="bubble" style="width:26px;height:26px;top:90px;left:40%" aria-hidden="true"></span>
   <div class="bw-wrap grid">
     <div>
-      <span class="eyebrow">Бесконтактная · EHRLE · 24/7</span>
+      <span class="eyebrow">Бесконтактная · <img class="eb-ehrle" src="../assets/img/ehrle.png" width="42" height="13" alt="EHRLE" decoding="async"> · 24/7</span>
       <h1 id="hero-h">Твоё авто <em>сияет</em> — раз, два, чисто!</h1>
-      <p class="lead">Быстро, удобно и безопасно для лака. Автомойка самообслуживания в Риге, открыта круглосуточно.</p>
+      <p class="lead"><strong>5 последовательных программ</strong> для тщательной мойки — быстро, удобно и безопасно для лака. Автомойка самообслуживания в Риге, открыта круглосуточно.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#pricing">Цены и программы</a>
         <a class="btn btn-ghost" href="#process">Как это работает →</a>
@@ -350,12 +378,27 @@ footer a:hover{color:#fff;text-decoration:underline}
           <img class="bw-img" src="../assets/img/panel.jpg" width="800" height="600" alt="Панель управления EHRLE с 5 программами мойки" loading="lazy" decoding="async">
         </picture>
       </div>
-      <ol class="steps" style="list-style:none;padding:0;margin:0">
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>1</span></div><div><h3>Предварительная мойка</h3><p>Пеной EHRLE Active Foam — размягчает загрязнения.</p></div></li>
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>2</span></div><div><h3>Мойка</h3><p>МикроПорошок ActivePower Pearl, высокое давление.</p></div></li>
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>3</span></div><div><h3>Ополаскивание</h3><p>Чистой водой сверху вниз.</p></div></li>
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>4</span></div><div><h3>Нанесение воска</h3><p>Горячим воском UltraProtection.</p></div></li>
-        <li class="pstep"><div class="dnum" aria-hidden="true"><span>5</span></div><div><h3>Полировка</h3><p>SuperFinish и деминерализованная вода.</p></div></li>
+      <ol class="steps">
+        <li class="pstep" data-open>
+          <button class="pstep-head" type="button" aria-expanded="true" aria-controls="ps1"><span class="dnum" aria-hidden="true"><span>1</span></span><span><span class="pstep-title">Активная пена</span><span class="pstep-lead">Наносится пенораспылителем — равномерно покрывает авто и размягчает грязь.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps1"><div class="pstep-body-in"><p>Активная пена воздействует на всю поверхность сразу и глубоко размягчает грязь, поэтому дальнейшая мойка эффективнее и бережнее к лаку.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps2"><span class="dnum" aria-hidden="true"><span>2</span></span><span><span class="pstep-title">Мойка МикроПорошком</span><span class="pstep-lead">МикроПорошок и тёплая вода удаляют даже стойкие загрязнения — без щёток, безопасно для лака.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps2"><div class="pstep-body-in"><p>В основе МикроПорошка — особая формула активных молекул; он удаляет даже самые стойкие загрязнения без щёток. Важно: средству нельзя давать высохнуть на авто.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps3"><span class="dnum" aria-hidden="true"><span>3</span></span><span><span class="pstep-title">Ополаскивание</span><span class="pstep-lead">Чистой умягчённой водой — солевые таблетки предотвращают разводы и потёки.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps3"><div class="pstep-body-in"><p>Специальные солевые таблетки поддерживают эффективность блока умягчения воды и обеспечивают воду нужной мягкости — это особенно важно для качественной мойки и предотвращает разводы.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps4"><span class="dnum" aria-hidden="true"><span>4</span></span><span><span class="pstep-title">Нанесение воска</span><span class="pstep-lead">Горячий воск создаёт защитную плёнку — отталкивает воду и придаёт блеск.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps4"><div class="pstep-body-in"><p>Воск вместе с тёплой водой образует защитную плёнку на кузове: она отталкивает воду, защищает краску от грязи и придаёт блеск — авто дольше остаётся чистым.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps5"><span class="dnum" aria-hidden="true"><span>5</span></span><span><span class="pstep-title">Ополаскивание и сушка</span><span class="pstep-lead">Деминерализованная вода и сушка — поверхность высыхает без разводов, авто готово к дороге.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps5"><div class="pstep-body-in"><p>После ополаскивания деминерализованной водой современная сушка быстро высушивает авто. Поверхность необязательно вытирать — она остаётся без разводов и потёков, чистой и защищённой.</p></div></div>
+        </li>
       </ol>
     </div>
   </div>
@@ -375,11 +418,13 @@ footer a:hover{color:#fff;text-decoration:underline}
     <div>
       <span class="tag-new">НОВИНКА</span>
       <h2 id="mt-h">Новый EHRLE MultiTerminal 5-в-1</h2>
-      <p>Удобное управление, понятный дисплей и оплата монетами или бесконтактной картой. Всё необходимое в одном месте.</p>
+      <p>Первый в Балтии — все функции после мойки в одном терминале, на двух местах одновременно. Оплата монетами или бесконтактной картой.</p>
       <ul>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Бесконтактная мойка высокого давления</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Активная пена и горячий воск</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Оплата: монеты и бесконтактная карта</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Мощный пылесос — 3700 л/мин</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Насадка Tornado для чистки салона</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Сушка авто — сдувает лишнюю воду</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Компрессор для шин — проверка давления</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Блеск шин — силиконовое покрытие</li>
       </ul>
     </div>
   </div>
@@ -394,7 +439,7 @@ footer a:hover{color:#fff;text-decoration:underline}
     </div>
     <div class="fgrid">
       <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="7" cy="9" r="3"/><circle cx="16" cy="7" r="2.5"/><circle cx="17" cy="15" r="3.5"/><circle cx="9" cy="16" r="2.5"/></svg></span><span class="tag">НОВИНКА</span><h3>Активная пена</h3><p>Удаляет даже стойкие загрязнения — безопасно для лака.</p></article>
-      <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>МикроПорошок</h3><p>Power Pearl — микрогубки, безвредны для лака.</p></article>
+      <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>МикроПорошок</h3><p>Особая формула активных молекул — удаляет грязь, безопасно для лака.</p></article>
       <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 18h16M6 18V9a6 6 0 0 1 12 0v9"/></svg></span><h3>Пылесос</h3><p>Мощный, с насадкой-пирамидой для ковриков.</p></article>
       <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3s5 5 5 9a5 5 0 0 1-10 0c0-4 5-9 5-9z"/></svg></span><h3>Стеклоомыватель</h3><p>Покупай ровно столько, сколько нужно — без пластика.</p></article>
       <article class="feat"><span class="dic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></span><h3>Дисплей реального времени</h3><p>Контролируй время и расходы во время мойки.</p></article>
@@ -415,7 +460,7 @@ footer a:hover{color:#fff;text-decoration:underline}
     <div class="price-grid">
       <article class="price">
         <h3>Мойка</h3>
-        <div class="amt">от 0,50 €<small> / интервал</small></div>
+        <div class="amt">0,50 €<small> / 55 сек</small></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>5 последовательных программ</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Пена, мойка, ополаскивание</li>
@@ -444,7 +489,7 @@ footer a:hover{color:#fff;text-decoration:underline}
         <a class="btn btn-ghost" href="#contact">Подробнее</a>
       </article>
     </div>
-    <p class="price-note">В цену включён НДС 21%. Итоговая сумма зависит от выбранного времени мойки.</p>
+    <p class="price-note">В среднем мойка обходится в 2–4 €. В цену включён НДС 21%, итоговая сумма зависит от выбранного времени мойки.</p>
   </div>
   <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,40 C360,4 540,64 900,36 C1140,18 1260,58 1440,30 L1440,70 L0,70 Z" fill="#0c1a2b"></path></svg>
 </section>
@@ -467,6 +512,19 @@ footer a:hover{color:#fff;text-decoration:underline}
         <span class="chip" role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8h3l1.5-2h5L19 8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="11" cy="13" r="3"/></svg>Камера</span><svg class="sep" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg><span class="chip" role="listitem"><svg width="18" height="13" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="12" rx="2"/><path d="M6 6v4M10 6v4M14 8h4"/></svg>AB-2344</span><svg class="sep" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg><span class="chip" role="listitem"><svg width="20" height="13" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M11 12c0-4 6-4 9 0s9 4 9 0-6-4-9 0-9 4-9 0z"/></svg>Безлимит</span>
       </div>
       <a class="btn btn-red" href="mailto:info@smartwash.lv?subject=%D0%97%D0%B0%D1%8F%D0%B2%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D0%B7%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%B1%D0%BE%D0%BD%D0%B5%D0%BC%D0%B5%D0%BD%D1%82">Оформить абонемент</a>
+      <div class="promo-apps">
+        <span class="promo-apps-label">Скачай приложение <strong>easy wash</strong> и начни мыть сразу:</span>
+        <div class="store-row">
+          <a class="store-btn" href="https://apps.apple.com/lv/app/easy-wash/id1440643365" target="_blank" rel="noopener" aria-label="Загрузить в App Store">
+            <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.77 2.26-4.1 2.36-4.16-1.29-1.88-3.29-2.14-4-2.17-1.7-.17-3.32 1-4.18 1-.86 0-2.19-.98-3.6-.95-1.85.03-3.56 1.08-4.51 2.73-1.93 3.35-.49 8.3 1.38 11.02.91 1.33 2 2.82 3.42 2.77 1.37-.05 1.89-.89 3.55-.89 1.65 0 2.12.89 3.57.86 1.47-.02 2.4-1.35 3.3-2.69 1.04-1.54 1.47-3.03 1.49-3.11-.03-.01-2.86-1.1-2.89-4.35M14.28 4.13c.76-.92 1.27-2.2 1.13-3.47-1.09.04-2.41.72-3.19 1.64-.7.81-1.31 2.11-1.15 3.35 1.21.09 2.45-.62 3.21-1.52"/></svg>
+            <span><small>Загрузить в</small>App Store</span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.easywash" target="_blank" rel="noopener" aria-label="Доступно в Google Play">
+            <svg viewBox="0 0 512 512" width="20" height="22" aria-hidden="true"><path fill="#00d3ff" d="M48.6 28.3A23.6 23.6 0 0 0 43 44.6v422.8a23.6 23.6 0 0 0 5.6 16.3l1.4 1.4L287.9 257.4v-2.8L50 26.9z"/><path fill="#ffce00" d="M367 336.7l-79.1-79.3v-2.8L367 175.3l1.8 1L462.5 230c26.7 15.1 26.7 40 0 55.2l-93.7 53.2z"/><path fill="#00f076" d="M368.8 335.7L287.9 256 48.6 495.4c8.8 9.3 23.3 10.5 39.7 1.2l280.5-160.9"/><path fill="#ff3a44" d="M368.8 176.3L88.3 15.5C71.9 6.1 57.4 7.3 48.6 16.6L287.9 256z"/></svg>
+            <span><small>Доступно в</small>Google Play</span>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="promo-visual">
       <svg class="promo-inf" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" aria-hidden="true"><path d="M60 50c0-18 28-18 40 0s40 18 40 0-28-18-40 0-40 18-40 0z"/></svg>
@@ -482,8 +540,13 @@ footer a:hover{color:#fff;text-decoration:underline}
   <span class="dewdrop" style="width:90px;height:90px;top:50px;right:10%;background:#fff;opacity:.1;animation:floaty 8s ease-in-out infinite" aria-hidden="true"></span>
   <div class="bw-wrap inner">
     <h2 id="cta-h">Заезжай в любое время</h2>
-    <p>Smart Wash работает 24/7. Компаниям — ключи и карты с отчётами. Напиши — и мы всё подготовим.</p>
-    <a class="btn btn-white" href="mailto:info@smartwash.lv">info@smartwash.lv</a>
+    <div class="cta-addr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Гунара Астрас 7B, Рига · Открыто 24/7</div>
+    <p>Smart Wash работает 24/7 в Риге. Компаниям — счёт для автопарка, карты и отчёты на e-mail. Напиши — и мы всё подготовим.</p>
+    <div class="cta-actions">
+      <a class="btn btn-white" href="https://www.google.com/maps/dir/?api=1&destination=Gun%C4%81ra+Astras+iela+7B%2C+R%C4%ABga" target="_blank" rel="noopener">Маршрут к нам →</a>
+      <a class="btn btn-outline-white" href="tel:+37126535316">+371 26 535 316</a>
+      <a class="btn btn-outline-white" href="mailto:info@smartwash.lv">info@smartwash.lv</a>
+    </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:48px" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#0b1622"></path></svg>
 </section>
@@ -492,10 +555,14 @@ footer a:hover{color:#fff;text-decoration:underline}
 
 <footer id="contact">
   <div class="bw-wrap">
+    <div class="map-sec">
+      <iframe src="https://www.google.com/maps?q=Gun%C4%81ra+Astras+iela+7B,+R%C4%ABga&output=embed" title="Smart Wash на карте — Гунара Астрас 7B, Рига" width="600" height="340" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
     <div class="foot-grid">
       <div>
         <a class="logo" href="../ru/" aria-label="Smart Wash — главная"><span class="drop" aria-hidden="true"></span><span class="wm">Smart<b style="color:var(--bw-red)">Wash</b></span></a>
         <p>Бесконтактная автомойка самообслуживания в Риге совместно с EHRLE.</p>
+        <p class="foot-reqs">SIA «Smart Wash» · Рег. № 40103678664 · НДС LV40103678664 · Гунара Астрас 7B, Рига, LV-1082</p>
       </div>
       <nav aria-label="Навигация в подвале">
         <h2 class="fh">Меню</h2>
@@ -512,6 +579,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       </div>
       <div>
         <h2 class="fh">Партнёр</h2>
+        <img class="foot-ehrle" src="../assets/img/ehrle.png" width="98" height="30" alt="EHRLE — производитель оборудования автомойки" loading="lazy" decoding="async">
         <ul><li>EHRLE — Германия</li><li>Качество с 1927</li><li>Сертификат VDA</li></ul>
       </div>
     </div>
@@ -522,5 +590,20 @@ footer a:hover{color:#fff;text-decoration:underline}
   </div>
 </footer>
 
+<script>
+(function(){
+  var heads=document.querySelectorAll('.steps .pstep-head');
+  heads.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var li=btn.parentElement, steps=li.parentElement, open=li.hasAttribute('data-open');
+      steps.querySelectorAll('.pstep[data-open]').forEach(function(o){
+        o.removeAttribute('data-open');
+        o.querySelector('.pstep-head').setAttribute('aria-expanded','false');
+      });
+      if(!open){li.setAttribute('data-open','');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+})();
+</script>
 </body>
 </html>
