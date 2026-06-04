@@ -143,15 +143,24 @@ p{margin:0}
 .v3-hero h1 em{font-style:normal;color:var(--bw-blue)}
 .v3-hero p.lead{font-size:19px;color:var(--bw-muted);max-width:46ch;line-height:1.6}
 .hero-cta{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.hero-loc{display:inline-flex;align-items:center;gap:13px;margin-top:18px;padding:10px 20px 10px 12px;background:#fff;border:1px solid var(--bw-line);border-radius:999px;box-shadow:var(--bw-shadow);text-decoration:none;color:var(--bw-ink);transition:box-shadow .2s ease,transform .2s ease}
+.hero-loc:hover{box-shadow:var(--bw-shadow-lg);transform:translateY(-2px)}
+.hero-loc .pin{width:40px;height:40px;border-radius:12px;background:linear-gradient(150deg,var(--bw-cyan),var(--bw-blue));display:grid;place-items:center;color:#fff;flex:none}
+.hero-loc b{display:block;font-size:15px;font-weight:700;line-height:1.25}
+.hero-loc small{display:block;font-size:12.5px;color:var(--bw-muted);margin-top:1px}
+.hero-loc .go{color:var(--bw-blue);font-weight:700;white-space:nowrap}
 .hero-photo{position:relative}
 .hero-photo .frame{aspect-ratio:4/3.6;border-radius:26px;overflow:hidden;box-shadow:var(--bw-shadow-lg);border:6px solid #fff}
 .hero-badge{position:absolute;left:-22px;bottom:30px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--bw-shadow-lg);display:flex;align-items:center;gap:12px}
 .hero-badge .b-drop{width:38px;height:38px;border-radius:50% 50% 50% 4px;background:linear-gradient(150deg,var(--bw-cyan),var(--bw-blue));transform:rotate(-12deg);flex:none}
 .hero-badge b{font-size:15px}.hero-badge small{display:block;font-size:12.5px;color:var(--bw-muted)}
-@media (max-width:380px){.hero-badge{left:0}}
+.hero-badge.top{left:auto;right:-18px;top:26px;bottom:auto}
+.hero-badge .b-num{width:38px;height:38px;border-radius:12px;background:linear-gradient(150deg,var(--bw-cyan),var(--bw-blue));color:#fff;font-weight:800;font-size:19px;display:grid;place-items:center;flex:none}
+@media (max-width:380px){.hero-badge{left:0}.hero-badge.top{right:0}}
 .hero-strip{position:relative;z-index:2;display:flex;gap:40px;margin-top:50px;flex-wrap:wrap}
 .hero-strip .st b{display:block;font-size:30px;font-weight:800;color:var(--bw-blue)}
 .hero-strip .st span{font-size:13.5px;color:var(--bw-muted)}
+@media (max-width:600px){.hero-strip{justify-content:center;gap:26px}.promo-apps-label{text-align:center}.store-row{justify-content:center}}
 
 /* ===== About ===== */
 .about{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center}
@@ -173,7 +182,8 @@ p{margin:0}
 .pstep .dnum{width:46px;height:46px;border-radius:50% 50% 50% 6px;background:linear-gradient(150deg,var(--bw-cyan),var(--bw-blue));color:#fff;font-weight:800;font-size:19px;display:grid;place-items:center;transform:rotate(-8deg)}
 .pstep .dnum span{transform:rotate(8deg);display:block}
 .pstep-title{display:block;font-size:17px;font-weight:700}
-.pstep-lead{display:block;font-size:13.5px;color:var(--bw-muted);margin-top:3px;line-height:1.45}
+.pstep-lead{display:block;font-size:13.5px;color:var(--bw-muted);margin-top:3px;line-height:1.45;font-weight:400;transition:color .25s,font-weight .25s}
+.pstep[data-open] .pstep-lead{font-weight:700;color:var(--bw-ink)}
 .pstep-chev{color:var(--bw-muted);transition:transform .3s,color .3s;justify-self:end}
 .pstep[data-open] .pstep-chev{transform:rotate(180deg);color:var(--bw-blue)}
 .pstep-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease}
@@ -189,6 +199,9 @@ p{margin:0}
 .mt h2{font-size:clamp(28px,3.6vw,40px);margin:16px 0 14px}
 .mt p{font-size:16.5px;color:var(--bw-muted);line-height:1.6}
 .mt ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:11px}
+.mt-tariff{margin-top:22px;display:grid;gap:9px}
+.mt-tariff span{display:flex;gap:9px;align-items:baseline;font-size:14.5px;color:var(--bw-muted);line-height:1.4}
+.mt-tariff b{color:var(--bw-blue);white-space:nowrap;font-weight:800;flex:none}
 .mt ul li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:var(--bw-muted)}
 .mt ul li svg{color:var(--bw-blue);margin-top:3px;flex:none}
 
@@ -275,6 +288,14 @@ footer a:hover{color:#fff;text-decoration:underline}
 .promo-off{position:relative;width:min(280px,72vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff5057,var(--bw-red) 58%,var(--bw-red-dark));display:grid;place-content:center;text-align:center;color:#fff;box-shadow:0 24px 60px rgba(216,30,38,.45),inset 0 2px 12px rgba(255,255,255,.25);border:6px solid rgba(255,255,255,.1)}
 .promo-off b{font-size:clamp(46px,9vw,74px);line-height:1;letter-spacing:-.04em;display:block}
 .promo-off span{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:8px;display:block;opacity:.95}
+.promo-off .promo-price{display:block;margin-top:14px;font-style:normal;font-size:clamp(22px,4.4vw,30px);font-weight:800;letter-spacing:-.01em}
+.promo-off .promo-note{display:block;margin-top:6px;font-size:11px;font-weight:600;letter-spacing:.02em;opacity:.8;padding:0 14px}
+.promo-brands{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:34px;flex-wrap:wrap}
+.promo-brands .pb-ew{display:inline-flex;align-items:center;gap:11px}
+.promo-brands .pb-ew-icon{height:34px;width:auto;flex:none}
+.promo-brands .pb-ew span{color:#fff;font-size:22px;font-weight:600;letter-spacing:-.01em;line-height:1}
+.promo-brands .pb-div{width:1px;height:32px;background:rgba(255,255,255,.2);flex:none}
+.promo-brands .pb-ehrle{height:26px;width:auto;opacity:.95}
 .promo-apps{margin-top:24px}
 .promo-apps-label{display:block;font-size:14px;color:#b9c6d4;margin-bottom:11px}
 .promo-apps-label strong{color:#fff;font-weight:700}
@@ -376,10 +397,14 @@ footer a:hover{color:#fff;text-decoration:underline}
         <a class="btn btn-primary" href="#pricing">Cenas un programmas</a>
         <a class="btn btn-ghost" href="#process">Kā tas darbojas →</a>
       </div>
+      <a class="hero-loc" href="https://www.google.com/maps/dir/?api=1&destination=Gun%C4%81ra+Astras+iela+7B%2C+R%C4%ABga" target="_blank" rel="noopener" aria-label="Mūsu atrašanās vieta: Gunāra Astras iela 7B, Rīga — atvērt kartē">
+        <span class="pin" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+        <span><b>Gunāra Astras iela 7B, Rīga</b><small>Atvērts 24/7 · <span class="go">Maršruts →</span></small></span>
+      </a>
       <div class="hero-strip">
-        <div class="st"><b>24/7</b><span>Atvērts diennakti</span></div>
-        <div class="st"><b>5</b><span>Mazgāšanas programmas</span></div>
-        <div class="st"><b>0</b><span>Skrāpējumu — bez birstēm</span></div>
+        <div class="st"><b>300&thinsp;000</b><span>Nomazgāto auto</span></div>
+        <div class="st"><b>10</b><span>Gadu pieredze</span></div>
+        <div class="st"><b>24h</b><span>Diennaktī</span></div>
       </div>
     </div>
     <div class="hero-photo">
@@ -390,6 +415,7 @@ footer a:hover{color:#fff;text-decoration:underline}
           <img class="bw-img" src="assets/img/foam.jpg" width="768" height="576" alt="Automašīna aktīvo putu mazgāšanas procesā" fetchpriority="high" decoding="async">
         </picture>
       </div>
+      <div class="hero-badge top"><span class="b-num" aria-hidden="true">5</span><div><b>Tikai 5 soļi</b><small>24h diennaktī</small></div></div>
       <div class="hero-badge"><span class="b-drop" aria-hidden="true"></span><div><b>Maksā par laiku</b><small>Displejs rāda atlikušo laiku</small></div></div>
     </div>
   </div>
@@ -408,12 +434,13 @@ footer a:hover{color:#fff;text-decoration:underline}
       <ul class="promo-list">
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Bezlimits mazgāšana 24/7</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Automātiska numura atpazīšana — iebrauc un mazgā</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Viens konts visam autoparkam</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Viena maksājumu karte</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Atskaites un kartes uzņēmumiem</li>
       </ul>
       <div class="promo-flow" role="list">
         <span class="chip" role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8h3l1.5-2h5L19 8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="11" cy="13" r="3"/></svg>Kamera</span><svg class="sep" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg><span class="chip" role="listitem"><svg width="18" height="13" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="12" rx="2"/><path d="M6 6v4M10 6v4M14 8h4"/></svg>AB-2344</span><svg class="sep" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg><span class="chip" role="listitem"><svg width="20" height="13" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M11 12c0-4 6-4 9 0s9 4 9 0-6-4-9 0-9 4-9 0z"/></svg>Bezlimits</span>
       </div>
-      <a class="btn btn-red" href="mailto:info@smartwash.lv?subject=Pieteikums%20bezlimita%20abonementam">Pieteikties abonementam</a>
       <div class="promo-apps">
         <span class="promo-apps-label">Lejupielādē lietotni <strong>easy wash</strong> un sāc mazgāt uzreiz:</span>
         <div class="store-row">
@@ -430,7 +457,15 @@ footer a:hover{color:#fff;text-decoration:underline}
     </div>
     <div class="promo-visual">
       <svg class="promo-inf" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" aria-hidden="true"><path d="M60 50c0-18 28-18 40 0s40 18 40 0-28-18-40 0-40 18-40 0z"/></svg>
-      <div class="promo-off"><b>−50%</b><span>pirmo mēnesi</span></div>
+      <div class="promo-off"><b>−50%</b><span>pirmo mēnesi</span><em class="promo-price">no 5.50&nbsp;€</em><small class="promo-note">*atkarīga no izvēlētās programmas</small></div>
+      <div class="promo-brands">
+        <span class="pb-ew">
+          <img class="pb-ew-icon" src="assets/img/easywash-white.png" width="44" height="34" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <span>easy wash</span>
+        </span>
+        <span class="pb-div" aria-hidden="true"></span>
+        <img class="pb-ehrle" src="assets/img/ehrle-white.png" width="98" height="30" alt="EHRLE" loading="lazy" decoding="async">
+      </div>
     </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,40 C360,4 540,64 900,36 C1140,18 1260,58 1440,30 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
@@ -450,11 +485,12 @@ footer a:hover{color:#fff;text-decoration:underline}
     <div>
       <span class="eyebrow">Par mums</span>
       <h2 id="about-h" style="font-size:clamp(28px,3.6vw,40px);margin:14px 0">Moderna bezkontakta mazgāšana, kas saudzē tavu auto</h2>
-      <p style="font-size:17px;color:var(--bw-muted);line-height:1.6">Smart Wash sadarbībā ar EHRLE piedāvā bezkontakta pašapkalpošanās automazgātavu. Inovatīvā tehnoloģija ļauj panākt lielisku rezultātu bez skrāpējumu riska.</p>
+      <p style="font-size:17px;color:var(--bw-muted);line-height:1.6">Smart Wash sadarbībā ar EHRLE piedāvā bezkontakta pašapkalpošanās automazgātavu. Bezkontakta risinājums nomaina birstes — lielisks rezultāts bez skrāpējumu riska, pateicoties inovatīvai tehnoloģijai un augstas kvalitātes mazgāšanas līdzekļiem.</p>
       <ul>
         <li><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span>Vācu EHRLE kvalitāte kopš 1927 · VDA sertifikāts</li>
         <li><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span>Reālā laika displejs — redzi atlikušo laiku</li>
         <li><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span>Mīkstināts ūdens bez traipu pēdām</li>
+        <li><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span>Uzticams mehānisms — strādā 24/7, katru dienu</li>
       </ul>
     </div>
   </div>
@@ -518,14 +554,19 @@ footer a:hover{color:#fff;text-decoration:underline}
     <div>
       <span class="tag-new">JAUNUMS</span>
       <h2 id="mt-h">Jaunais EHRLE MultiTerminal 5-in-1</h2>
-      <p>Pirmais Baltijā — visas pēcmazgāšanas funkcijas vienā terminālī, divām vietām vienlaikus. Norēķins ar monētām vai bezkontakta karti.</p>
+      <p>Pirmais Baltijā uzstādītais EHRLE MultiTerminal — visas pēcmazgāšanas funkcijas vienā terminālī, divām tīrīšanas vietām vienlaikus.</p>
       <ul>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Jaudīgs putekļsūcējs — 3700 l/min</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Tornado sprausla salona tīrīšanai</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Auto žāvētājs — nopūš lieko ūdeni</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu kompresors — spiediena pārbaude</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu spīdums — silikona pārklājums</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Jaudīgs putekļsūcējs — 3700 l/min, 160 mbar vakuums</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Tornado sprausla — rotējošs gaiss salonam, minimāli ķīmijas</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Auto žāvētājs — gaisa kompresors nopūš lieko ūdeni</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu kompresors — pārbaudi un regulē spiedienu</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu spīdums — silikons riepām un plastmasai</li>
       </ul>
+      <div class="mt-tariff">
+        <span><b>0,50 € = 3 min</b> Putekļsūcējs · žāvētājs · kompresors</span>
+        <span><b>0,50 € = 1 min</b> Tornado · riepu spīdums</span>
+      </div>
+      <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Gun%C4%81ra+Astras+iela+7B%2C+R%C4%ABga" target="_blank" rel="noopener" style="margin-top:22px">Brauc un izmēģini pats →</a>
     </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#fff"></path></svg>
@@ -560,33 +601,33 @@ footer a:hover{color:#fff;text-decoration:underline}
       <p>Norēķins ar monētām vai bezkontakta karti. Programmas vari brīvi mainīt mazgāšanas laikā.</p>
     </div>
     <div class="price-grid">
-      <article class="price">
+      <article class="price hot" data-badge="Populārākais">
         <h3>Mazgāšana</h3>
         <div class="amt">0,50 €<small> / 55 sek</small></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>5 secīgas programmas</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Putas, mazgāšana, skalošana</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Vasks un spodrināšana</li>
-        </ul>
-        <a class="btn btn-ghost" href="#contact">Vairāk info</a>
-      </article>
-      <article class="price hot" data-badge="Populārākais">
-        <h3>MultiTerminal 5-in-1</h3>
-        <div class="amt">no 0,50 €<small> / pakalpojums</small></div>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Putekļsūcējs un Tornado</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Žāvētājs un riepu kompresors</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Riepu spīdums</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Pārslēdzies starp programmām jebkurā brīdī</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Putas, mazgāšana, skalošana, vasks</li>
         </ul>
         <a class="btn btn-primary" href="#contact">Vairāk info</a>
       </article>
       <article class="price">
-        <h3>Papildu</h3>
-        <div class="amt">0,50 €<small> / litrs</small></div>
+        <h3>Tīrīšana ar putekļsūcēju</h3>
+        <div class="amt">0,50 €<small> / 3,3 min (198 sek)</small></div>
         <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Logu šķidrums uz vietas</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Paklājiņu tīrīšana</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Firmām — kartes un atskaites</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Augstas kvalitātes pašapkalpošanās putekļsūcējs</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Piramīda paklājiņu tīrīšanai</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Salonam un paklājiņiem</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Vairāk info</a>
+      </article>
+      <article class="price">
+        <h3>Vasaras logu šķidrums</h3>
+        <div class="amt">0,50 €<small> / ~1 L</small></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Logu šķidruma automāts uz vietas</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Pērc tieši tik litru, cik vajag</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Draudzīgi dabai — bez plastmasas kannām</li>
         </ul>
         <a class="btn btn-ghost" href="#contact">Vairāk info</a>
       </article>
@@ -643,7 +684,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       </div>
       <div>
         <h2 class="fh">Partneris</h2>
-        <img class="foot-ehrle" src="assets/img/ehrle.png" width="98" height="30" alt="EHRLE — automazgātavas iekārtu ražotājs" loading="lazy" decoding="async">
+        <img class="foot-ehrle" src="assets/img/ehrle-white.png" width="98" height="30" alt="EHRLE — automazgātavas iekārtu ražotājs" loading="lazy" decoding="async">
         <ul><li>EHRLE — Vācija</li><li>Kvalitāte kopš 1927</li><li>VDA sertifikāts</li></ul>
       </div>
     </div>
