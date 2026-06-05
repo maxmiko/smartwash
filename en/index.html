@@ -172,6 +172,30 @@ p{margin:0}
 .pstep[data-open] .pstep-body{grid-template-rows:1fr}
 .pstep-body-in{overflow:hidden}
 .pstep-body-in p{margin:0;padding:2px 20px 18px 84px;font-size:14px;color:var(--bw-muted);line-height:1.6}
+
+/* ===== Wash programs board ===== */
+.progs{background:linear-gradient(160deg,#1b1e24,#0e0f12);color:#fff;overflow:hidden}
+.prog-ehrle{display:block;height:34px;width:auto;margin:0 auto 10px}
+.progs .eyebrow{color:#ff6b6b}
+.progs h2{color:#fff}
+.progs .sec-head p{color:#aeb6c2}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media (max-width:880px){.prog-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.prog-grid{grid-template-columns:1fr}}
+.prog{position:relative;background:rgba(255,255,255,.045);border:1.5px solid rgba(255,255,255,.12);border-radius:18px;padding:22px 20px;overflow:hidden}
+.prog--green{border-color:rgba(86,205,90,.5)}
+.prog--red{border-color:rgba(216,30,38,.5)}
+.prog-num{position:absolute;top:4px;right:18px;font-size:72px;font-weight:800;line-height:1;color:rgba(255,255,255,.07);pointer-events:none}
+.prog-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.prog-ico{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;flex:none;color:#fff}
+.prog--green .prog-ico{background:linear-gradient(150deg,#5ed35f,#37a23c)}
+.prog--red .prog-ico{background:linear-gradient(150deg,#ff5057,var(--bw-red))}
+.prog h3{font-size:17px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin:0;line-height:1.15}
+.prog--green h3{color:#6cdc70}
+.prog--red h3{color:#ff6b6b}
+.prog ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.prog li{position:relative;padding-left:17px;font-size:13.5px;color:#cfd6df;line-height:1.45}
+.prog li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:#8b95a3}
 .mt{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 @media (max-width:920px){.mt{grid-template-columns:1fr}}
 .mt .photo{aspect-ratio:4/3.4;border-radius:22px;overflow:hidden;box-shadow:var(--bw-shadow-lg);border:5px solid #fff}
@@ -464,46 +488,59 @@ footer a:hover{color:#fff;text-decoration:underline}
       </ul>
     </div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#fff"></path></svg>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#1b1e24"></path></svg>
 </section>
 
-<section class="sec" id="process" aria-labelledby="process-h">
+<section class="sec progs" id="process" aria-labelledby="process-h">
   <div class="bw-wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Process</span>
-      <h2 id="process-h">5 steps to a shine</h2>
-      <p>A simple sequence on the EHRLE panel — adjust the programs to your liking.</p>
+    <img class="prog-ehrle" src="../assets/img/ehrle-white.png" width="110" height="34" alt="EHRLE" loading="lazy" decoding="async">
+    <div class="sec-head center">
+      <span class="eyebrow">Programs</span>
+      <h2 id="process-h">Wash programs</h2>
+      <p>5 sequential programs on the EHRLE panel — for the best result.</p>
     </div>
-    <div class="pwrap">
-      <div class="photo">
-        <picture>
-          <source type="image/avif" srcset="../assets/img/panel.avif">
-          <source type="image/webp" srcset="../assets/img/panel.webp">
-          <img class="bw-img" src="../assets/img/panel.jpg" width="800" height="600" alt="EHRLE control panel with 5 wash programs" loading="lazy" decoding="async">
-        </picture>
-      </div>
-      <ol class="steps">
-        <li class="pstep" data-open>
-          <button class="pstep-head" type="button" aria-expanded="true" aria-controls="ps1"><span class="dnum" aria-hidden="true"><span>1</span></span><span><span class="pstep-title">Active foam</span><span class="pstep-lead">Applied with a foam gun — evenly coats the car and loosens dirt.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="pstep-body" id="ps1"><div class="pstep-body-in"><p>The active foam works across the whole surface at once and deeply loosens dirt, so the rest of the wash is more effective and gentler on the paint.</p></div></div>
-        </li>
-        <li class="pstep">
-          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps2"><span class="dnum" aria-hidden="true"><span>2</span></span><span><span class="pstep-title">MicroPowder wash</span><span class="pstep-lead">MicroPowder and warm water remove even stubborn dirt — no brushes, safe for paint.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="pstep-body" id="ps2"><div class="pstep-body-in"><p>MicroPowder is based on a special active-molecule formula and removes even the most stubborn dirt without brushes. Important: don't let the product dry on the car.</p></div></div>
-        </li>
-        <li class="pstep">
-          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps3"><span class="dnum" aria-hidden="true"><span>3</span></span><span><span class="pstep-title">Rinse</span><span class="pstep-lead">Clean, softened water — salt tablets prevent streaks and water marks.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="pstep-body" id="ps3"><div class="pstep-body-in"><p>Special salt tablets keep the water-softening unit effective and provide properly softened water — essential for a high-quality wash and prevents streaks.</p></div></div>
-        </li>
-        <li class="pstep">
-          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps4"><span class="dnum" aria-hidden="true"><span>4</span></span><span><span class="pstep-title">Wax</span><span class="pstep-lead">Hot wax forms a protective film — repels water and adds shine.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="pstep-body" id="ps4"><div class="pstep-body-in"><p>Together with warm water, the wax forms a protective film on the body: it repels water, shields the paint from dirt and adds shine — the car stays clean longer.</p></div></div>
-        </li>
-        <li class="pstep">
-          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps5"><span class="dnum" aria-hidden="true"><span>5</span></span><span><span class="pstep-title">Rinse &amp; dry</span><span class="pstep-lead">Demineralised water and a dryer — the surface dries spot-free, ready to drive.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="pstep-body" id="ps5"><div class="pstep-body-in"><p>After rinsing with demineralised water, a modern dryer quickly dries the car. You don't have to wipe the surface — it stays free of streaks and runs, clean and protected.</p></div></div>
-        </li>
-      </ol>
+    <div class="prog-grid">
+      <article class="prog prog--green">
+        <span class="prog-num" aria-hidden="true">1</span>
+        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="7" cy="9" r="3"/><circle cx="16" cy="7" r="2.5"/><circle cx="17" cy="15" r="3.5"/><circle cx="9" cy="16.5" r="2.3"/></svg></span><h3>Active foam</h3></div>
+        <ul>
+          <li>Apply active foam to soften dirt.</li>
+          <li>Apply foam from the bottom up.</li>
+          <li>Cover the entire surface and rinse before drying.</li>
+        </ul>
+      </article>
+      <article class="prog prog--red">
+        <span class="prog-num" aria-hidden="true">2</span>
+        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/></svg></span><h3>Powder</h3></div>
+        <ul>
+          <li>Touchless washing with warm water and powder.</li>
+          <li>Wash the whole surface carefully and rinse before drying.</li>
+        </ul>
+      </article>
+      <article class="prog prog--red">
+        <span class="prog-num" aria-hidden="true">3</span>
+        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3s5.5 5.5 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.5 12 3 12 3z"/></svg></span><h3>Rinse with clean water</h3></div>
+        <ul>
+          <li>Rinse off all dirt and detergents.</li>
+        </ul>
+      </article>
+      <article class="prog prog--red">
+        <span class="prog-num" aria-hidden="true">4</span>
+        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3l7 3v5c0 4.2-3 7.4-7 9-4-1.6-7-4.8-7-9V6z"/></svg></span><h3>Wax</h3></div>
+        <ul>
+          <li>Warm, softened water with wax.</li>
+          <li>Water-repellent effect — protects the body from dirt.</li>
+        </ul>
+      </article>
+      <article class="prog prog--red">
+        <span class="prog-num" aria-hidden="true">5</span>
+        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3l1.7 5.6 5.6 1.7-5.6 1.7L12 18l-1.7-5.6L4.7 10l5.6-1.4z"/></svg></span><h3>Shine</h3></div>
+        <ul>
+          <li>Rinse with demineralized water and a dryer.</li>
+          <li>No need to wipe the surface after rinsing.</li>
+          <li>No white spots — the surface dries with a shine.</li>
+        </ul>
+      </article>
     </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,32 C240,72 480,4 720,28 C960,52 1200,8 1440,36 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
