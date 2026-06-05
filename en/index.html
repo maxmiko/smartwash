@@ -380,8 +380,9 @@ footer a:hover{color:#fff;text-decoration:underline}
         <div class="st"><b>24h</b><span>A day</span></div>
       </div>
     </div>
-    <div class="hero-poster" id="process">
+    <div class="hero-poster">
       <picture>
+        <source type="image/avif" srcset="../assets/img/programs.avif">
         <source type="image/webp" srcset="../assets/img/programs.webp">
         <img class="bw-img" src="../assets/img/programs.jpg" width="1500" height="789" alt="EHRLE wash programs — 5 steps" fetchpriority="high" decoding="async">
       </picture>
@@ -461,7 +462,50 @@ footer a:hover{color:#fff;text-decoration:underline}
       </ul>
     </div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#fff"></path></svg>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process" aria-labelledby="process-h">
+  <div class="bw-wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Process</span>
+      <h2 id="process-h">5 steps to a shine</h2>
+      <p>A simple sequence on the EHRLE panel — adjust the programs to your liking.</p>
+    </div>
+    <div class="pwrap">
+      <div class="photo">
+        <picture>
+          <source type="image/avif" srcset="../assets/img/panel.avif">
+          <source type="image/webp" srcset="../assets/img/panel.webp">
+          <img class="bw-img" src="../assets/img/panel.jpg" width="800" height="600" alt="EHRLE control panel with 5 wash programs" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <ol class="steps">
+        <li class="pstep" data-open>
+          <button class="pstep-head" type="button" aria-expanded="true" aria-controls="ps1"><span class="dnum" aria-hidden="true"><span>1</span></span><span><span class="pstep-title">Active foam</span><span class="pstep-lead">Applied with a foam gun — evenly coats the car and loosens dirt.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps1"><div class="pstep-body-in"><p>The active foam works across the whole surface at once and deeply loosens dirt, so the rest of the wash is more effective and gentler on the paint.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps2"><span class="dnum" aria-hidden="true"><span>2</span></span><span><span class="pstep-title">MicroPowder wash</span><span class="pstep-lead">MicroPowder and warm water remove even stubborn dirt — no brushes, safe for paint.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps2"><div class="pstep-body-in"><p>MicroPowder is based on a special active-molecule formula and removes even the most stubborn dirt without brushes. Important: don't let the product dry on the car.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps3"><span class="dnum" aria-hidden="true"><span>3</span></span><span><span class="pstep-title">Rinse</span><span class="pstep-lead">Clean, softened water — salt tablets prevent streaks and water marks.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps3"><div class="pstep-body-in"><p>Special salt tablets keep the water-softening unit effective and provide properly softened water — essential for a high-quality wash and prevents streaks.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps4"><span class="dnum" aria-hidden="true"><span>4</span></span><span><span class="pstep-title">Wax</span><span class="pstep-lead">Hot wax forms a protective film — repels water and adds shine.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps4"><div class="pstep-body-in"><p>Together with warm water, the wax forms a protective film on the body: it repels water, shields the paint from dirt and adds shine — the car stays clean longer.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps5"><span class="dnum" aria-hidden="true"><span>5</span></span><span><span class="pstep-title">Rinse &amp; dry</span><span class="pstep-lead">Demineralised water and a dryer — the surface dries spot-free, ready to drive.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps5"><div class="pstep-body-in"><p>After rinsing with demineralised water, a modern dryer quickly dries the car. You don't have to wipe the surface — it stays free of streaks and runs, clean and protected.</p></div></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,32 C240,72 480,4 720,28 C960,52 1200,8 1440,36 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
 </section>
 
 <section class="sec light" id="mt" aria-labelledby="mt-h">

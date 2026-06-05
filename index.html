@@ -409,8 +409,9 @@ footer a:hover{color:#fff;text-decoration:underline}
         <div class="st"><b>24h</b><span>Diennaktī</span></div>
       </div>
     </div>
-    <div class="hero-poster" id="process">
+    <div class="hero-poster">
       <picture>
+        <source type="image/avif" srcset="assets/img/programs.avif">
         <source type="image/webp" srcset="assets/img/programs.webp">
         <img class="bw-img" src="assets/img/programs.jpg" width="1500" height="789" alt="EHRLE mazgāšanas programmas — 5 soļi" fetchpriority="high" decoding="async">
       </picture>
@@ -491,7 +492,50 @@ footer a:hover{color:#fff;text-decoration:underline}
       </ul>
     </div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#fff"></path></svg>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process" aria-labelledby="process-h">
+  <div class="bw-wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Process</span>
+      <h2 id="process-h">5 soļi līdz spīdumam</h2>
+      <p>Vienkārša secība uz EHRLE paneļa — vari pielāgot programmas pēc saviem ieskatiem.</p>
+    </div>
+    <div class="pwrap">
+      <div class="photo">
+        <picture>
+          <source type="image/avif" srcset="assets/img/panel.avif">
+          <source type="image/webp" srcset="assets/img/panel.webp">
+          <img class="bw-img" src="assets/img/panel.jpg" width="800" height="600" alt="EHRLE vadības panelis ar 5 mazgāšanas programmām" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <ol class="steps">
+        <li class="pstep" data-open>
+          <button class="pstep-head" type="button" aria-expanded="true" aria-controls="ps1"><span class="dnum" aria-hidden="true"><span>1</span></span><span><span class="pstep-title">Aktīvās putas</span><span class="pstep-lead">Uzklāj ar putu pistoli — vienmērīgi pārklāj auto un atmiekšķē netīrumus.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps1"><div class="pstep-body-in"><p>Aktīvās putas iedarbojas uz visu virsmu vienlaikus un dziļi atmiekšķē netīrumus, tāpēc tālākā mazgāšana ir efektīvāka un saudzīgāka lakai.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps2"><span class="dnum" aria-hidden="true"><span>2</span></span><span><span class="pstep-title">Mazgāšana ar MikroPulveri</span><span class="pstep-lead">MikroPulveris un siltais ūdens noņem pat noturīgākos netīrumus — bez birstēm, droši lakai.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps2"><div class="pstep-body-in"><p>MikroPulveris balstās uz aktīvo molekulu īpašo formulu un noņem pat visnoturīgākos netīrumus bez birstēm. Svarīgi: mazgāšanas līdzeklim uz auto nedrīkst ļaut izžūt.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps3"><span class="dnum" aria-hidden="true"><span>3</span></span><span><span class="pstep-title">Skalošana</span><span class="pstep-lead">Ar tīru, mīkstinātu ūdeni — sāls tabletes novērš traipu un notecējumu pēdas.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps3"><div class="pstep-body-in"><p>Speciālās sāls tabletes uztur ūdens mīkstināšanas bloka efektivitāti un nodrošina atbilstoši mīkstinātu ūdeni — tas ir īpaši svarīgi augsti kvalitatīvai mazgāšanai un novērš traipus.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps4"><span class="dnum" aria-hidden="true"><span>4</span></span><span><span class="pstep-title">Vaskošana</span><span class="pstep-lead">Karstais vasks veido aizsargplēvi — atgrūž ūdeni un piešķir spīdumu.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps4"><div class="pstep-body-in"><p>Vasks kopā ar silto ūdeni izveido aizsargplēvīti uz virsbūves: tā atgrūž ūdeni, pasargā krāsu no netīrumiem un piešķir spīdumu — auto ilgāk paliek tīrs.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps5"><span class="dnum" aria-hidden="true"><span>5</span></span><span><span class="pstep-title">Skalošana un žāvēšana</span><span class="pstep-lead">Demineralizēts ūdens un žāvētājs — virsma izžūst bez traipiem, gatava ceļam.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps5"><div class="pstep-body-in"><p>Pēc skalošanas ar demineralizētu ūdeni mūsdienīgais žāvētājs ātri nožāvē auto. Virsmu nav obligāti jāslauka — tā paliek bez traipiem un notecējumiem, tīra un pasargāta.</p></div></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,32 C240,72 480,4 720,28 C960,52 1200,8 1440,36 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
 </section>
 
 <!-- MULTITERMINAL -->

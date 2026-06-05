@@ -380,8 +380,9 @@ footer a:hover{color:#fff;text-decoration:underline}
         <div class="st"><b>24h</b><span>В сутки</span></div>
       </div>
     </div>
-    <div class="hero-poster" id="process">
+    <div class="hero-poster">
       <picture>
+        <source type="image/avif" srcset="../assets/img/programs.avif">
         <source type="image/webp" srcset="../assets/img/programs.webp">
         <img class="bw-img" src="../assets/img/programs.jpg" width="1500" height="789" alt="Программы мойки EHRLE — 5 шагов" fetchpriority="high" decoding="async">
       </picture>
@@ -461,7 +462,50 @@ footer a:hover{color:#fff;text-decoration:underline}
       </ul>
     </div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#fff"></path></svg>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process" aria-labelledby="process-h">
+  <div class="bw-wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Процесс</span>
+      <h2 id="process-h">5 шагов до блеска</h2>
+      <p>Простая последовательность на панели EHRLE — программы можно менять по своему усмотрению.</p>
+    </div>
+    <div class="pwrap">
+      <div class="photo">
+        <picture>
+          <source type="image/avif" srcset="../assets/img/panel.avif">
+          <source type="image/webp" srcset="../assets/img/panel.webp">
+          <img class="bw-img" src="../assets/img/panel.jpg" width="800" height="600" alt="Панель управления EHRLE с 5 программами мойки" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <ol class="steps">
+        <li class="pstep" data-open>
+          <button class="pstep-head" type="button" aria-expanded="true" aria-controls="ps1"><span class="dnum" aria-hidden="true"><span>1</span></span><span><span class="pstep-title">Активная пена</span><span class="pstep-lead">Наносится пенораспылителем — равномерно покрывает авто и размягчает грязь.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps1"><div class="pstep-body-in"><p>Активная пена воздействует на всю поверхность сразу и глубоко размягчает грязь, поэтому дальнейшая мойка эффективнее и бережнее к лаку.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps2"><span class="dnum" aria-hidden="true"><span>2</span></span><span><span class="pstep-title">Мойка МикроПорошком</span><span class="pstep-lead">МикроПорошок и тёплая вода удаляют даже стойкие загрязнения — без щёток, безопасно для лака.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps2"><div class="pstep-body-in"><p>В основе МикроПорошка — особая формула активных молекул; он удаляет даже самые стойкие загрязнения без щёток. Важно: средству нельзя давать высохнуть на авто.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps3"><span class="dnum" aria-hidden="true"><span>3</span></span><span><span class="pstep-title">Ополаскивание</span><span class="pstep-lead">Чистой умягчённой водой — солевые таблетки предотвращают разводы и потёки.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps3"><div class="pstep-body-in"><p>Специальные солевые таблетки поддерживают эффективность блока умягчения воды и обеспечивают воду нужной мягкости — это особенно важно для качественной мойки и предотвращает разводы.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps4"><span class="dnum" aria-hidden="true"><span>4</span></span><span><span class="pstep-title">Нанесение воска</span><span class="pstep-lead">Горячий воск создаёт защитную плёнку — отталкивает воду и придаёт блеск.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps4"><div class="pstep-body-in"><p>Воск вместе с тёплой водой образует защитную плёнку на кузове: она отталкивает воду, защищает краску от грязи и придаёт блеск — авто дольше остаётся чистым.</p></div></div>
+        </li>
+        <li class="pstep">
+          <button class="pstep-head" type="button" aria-expanded="false" aria-controls="ps5"><span class="dnum" aria-hidden="true"><span>5</span></span><span><span class="pstep-title">Ополаскивание и сушка</span><span class="pstep-lead">Деминерализованная вода и сушка — поверхность высыхает без разводов, авто готово к дороге.</span></span><svg class="pstep-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="pstep-body" id="ps5"><div class="pstep-body-in"><p>После ополаскивания деминерализованной водой современная сушка быстро высушивает авто. Поверхность необязательно вытирать — она остаётся без разводов и потёков, чистой и защищённой.</p></div></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,32 C240,72 480,4 720,28 C960,52 1200,8 1440,36 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
 </section>
 
 <section class="sec light" id="mt" aria-labelledby="mt-h">
