@@ -40,8 +40,6 @@
 
 <link rel="preload" href="../assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/img/foam.avif" as="image" type="image/avif" fetchpriority="high">
-
 <style>
 @font-face{font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;src:url('../assets/fonts/manrope-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;src:url('../assets/fonts/manrope-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -173,29 +171,24 @@ p{margin:0}
 .pstep-body-in{overflow:hidden}
 .pstep-body-in p{margin:0;padding:2px 20px 18px 84px;font-size:14px;color:var(--bw-muted);line-height:1.6}
 
-/* ===== Wash programs board ===== */
-.progs{background:linear-gradient(160deg,#1b1e24,#0e0f12);color:#fff;overflow:hidden}
-.prog-ehrle{display:block;height:34px;width:auto;margin:0 auto 10px}
-.progs .eyebrow{color:#ff6b6b}
-.progs h2{color:#fff}
-.progs .sec-head p{color:#aeb6c2}
-.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
-@media (max-width:880px){.prog-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.prog-grid{grid-template-columns:1fr}}
-.prog{position:relative;background:rgba(255,255,255,.045);border:1.5px solid rgba(255,255,255,.12);border-radius:18px;padding:22px 20px;overflow:hidden}
-.prog--green{border-color:rgba(86,205,90,.5)}
-.prog--red{border-color:rgba(216,30,38,.5)}
-.prog-num{position:absolute;top:4px;right:18px;font-size:72px;font-weight:800;line-height:1;color:rgba(255,255,255,.07);pointer-events:none}
-.prog-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.prog-ico{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;flex:none;color:#fff}
-.prog--green .prog-ico{background:linear-gradient(150deg,#5ed35f,#37a23c)}
-.prog--red .prog-ico{background:linear-gradient(150deg,#ff5057,var(--bw-red))}
-.prog h3{font-size:17px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin:0;line-height:1.15}
-.prog--green h3{color:#6cdc70}
-.prog--red h3{color:#ff6b6b}
-.prog ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
-.prog li{position:relative;padding-left:17px;font-size:13.5px;color:#cfd6df;line-height:1.45}
-.prog li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:#8b95a3}
+/* ===== Hero programs panel ===== */
+.hero-progs{background:linear-gradient(160deg,#1b1e24,#0e0f12);border-radius:24px;padding:18px;box-shadow:var(--bw-shadow-lg);border:6px solid #fff}
+.hp-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:4px 4px 14px}
+.hp-ehrle{height:22px;width:auto}
+.hp-head span{color:#aeb6c2;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.hero-progs ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.hp{display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px}
+.hp--green{border-color:rgba(86,205,90,.45)}
+.hp--red{border-color:rgba(216,30,38,.4)}
+.hp-ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:none;color:#fff}
+.hp--green .hp-ico{background:linear-gradient(150deg,#5ed35f,#37a23c)}
+.hp--red .hp-ico{background:linear-gradient(150deg,#ff5057,var(--bw-red))}
+.hp-txt{min-width:0;flex:1}
+.hp-txt b{display:block;font-size:14px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;line-height:1.15}
+.hp--green .hp-txt b{color:#6cdc70}
+.hp--red .hp-txt b{color:#ff8086}
+.hp-txt small{display:block;font-size:12px;color:#aeb6c2;line-height:1.35;margin-top:1px}
+.hp-num{font-size:21px;font-weight:800;color:rgba(255,255,255,.2);flex:none;width:20px;text-align:center}
 .mt{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 @media (max-width:920px){.mt{grid-template-columns:1fr}}
 .mt .photo{aspect-ratio:4/3.4;border-radius:22px;overflow:hidden;box-shadow:var(--bw-shadow-lg);border:5px solid #fff}
@@ -402,16 +395,15 @@ footer a:hover{color:#fff;text-decoration:underline}
         <div class="st"><b>24h</b><span>В сутки</span></div>
       </div>
     </div>
-    <div class="hero-photo">
-      <div class="frame">
-        <picture>
-          <source type="image/avif" srcset="../assets/img/foam.avif">
-          <source type="image/webp" srcset="../assets/img/foam.webp">
-          <img class="bw-img" src="../assets/img/foam.jpg" width="768" height="576" alt="Автомобиль в процессе мойки активной пеной" fetchpriority="high" decoding="async">
-        </picture>
-      </div>
-      <div class="hero-badge top"><span class="b-num" aria-hidden="true">5</span><div><b>Всего 5 шагов</b><small>24 часа в сутки</small></div></div>
-      <div class="hero-badge"><span class="b-drop" aria-hidden="true"></span><div><b>Оплата за время</b><small>Дисплей показывает остаток</small></div></div>
+    <div class="hero-progs" id="process">
+      <div class="hp-head"><img class="hp-ehrle" src="../assets/img/ehrle-white.png" width="72" height="22" alt="EHRLE" decoding="async"><span>Программы мойки</span></div>
+      <ul>
+        <li class="hp hp--green"><span class="hp-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="7" cy="9" r="3"/><circle cx="16" cy="7" r="2.5"/><circle cx="17" cy="15" r="3.5"/><circle cx="9" cy="16.5" r="2.3"/></svg></span><span class="hp-txt"><b>Активная пена</b><small>Размягчает грязь</small></span><span class="hp-num" aria-hidden="true">1</span></li>
+        <li class="hp hp--red"><span class="hp-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/></svg></span><span class="hp-txt"><b>Порошок</b><small>Бесконтактно, тёплой водой</small></span><span class="hp-num" aria-hidden="true">2</span></li>
+        <li class="hp hp--red"><span class="hp-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3s5.5 5.5 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.5 12 3 12 3z"/></svg></span><span class="hp-txt"><b>Ополаскивание</b><small>Чистой умягчённой водой</small></span><span class="hp-num" aria-hidden="true">3</span></li>
+        <li class="hp hp--red"><span class="hp-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3l7 3v5c0 4.2-3 7.4-7 9-4-1.6-7-4.8-7-9V6z"/></svg></span><span class="hp-txt"><b>Воск</b><small>Защищает и отталкивает воду</small></span><span class="hp-num" aria-hidden="true">4</span></li>
+        <li class="hp hp--red"><span class="hp-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3l1.7 5.6 5.6 1.7-5.6 1.7L12 18l-1.7-5.6L4.7 10l5.6-1.4z"/></svg></span><span class="hp-txt"><b>Блеск</b><small>Сушка без разводов</small></span><span class="hp-num" aria-hidden="true">5</span></li>
+      </ul>
     </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,32 C240,72 480,4 720,28 C960,52 1200,8 1440,36 L1440,70 L0,70 Z" fill="#0c1a2b"></path></svg>
@@ -488,62 +480,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       </ul>
     </div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#1b1e24"></path></svg>
-</section>
-
-<section class="sec progs" id="process" aria-labelledby="process-h">
-  <div class="bw-wrap">
-    <img class="prog-ehrle" src="../assets/img/ehrle-white.png" width="110" height="34" alt="EHRLE" loading="lazy" decoding="async">
-    <div class="sec-head center">
-      <span class="eyebrow">Программы</span>
-      <h2 id="process-h">Программы мойки</h2>
-      <p>5 последовательных программ на панели EHRLE — для наилучшего результата.</p>
-    </div>
-    <div class="prog-grid">
-      <article class="prog prog--green">
-        <span class="prog-num" aria-hidden="true">1</span>
-        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="7" cy="9" r="3"/><circle cx="16" cy="7" r="2.5"/><circle cx="17" cy="15" r="3.5"/><circle cx="9" cy="16.5" r="2.3"/></svg></span><h3>Активная пена</h3></div>
-        <ul>
-          <li>Нанесение активной пены для размягчения загрязнений.</li>
-          <li>Наносите пену снизу вверх.</li>
-          <li>Покройте всю поверхность и смойте до высыхания.</li>
-        </ul>
-      </article>
-      <article class="prog prog--red">
-        <span class="prog-num" aria-hidden="true">2</span>
-        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/></svg></span><h3>Порошок</h3></div>
-        <ul>
-          <li>Бесконтактная мойка тёплой водой с моющим средством.</li>
-          <li>Тщательно пройдите всю поверхность и смойте до высыхания.</li>
-        </ul>
-      </article>
-      <article class="prog prog--red">
-        <span class="prog-num" aria-hidden="true">3</span>
-        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3s5.5 5.5 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.5 12 3 12 3z"/></svg></span><h3>Ополаскивание чистой водой</h3></div>
-        <ul>
-          <li>Смойте всю грязь и моющие средства.</li>
-        </ul>
-      </article>
-      <article class="prog prog--red">
-        <span class="prog-num" aria-hidden="true">4</span>
-        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3l7 3v5c0 4.2-3 7.4-7 9-4-1.6-7-4.8-7-9V6z"/></svg></span><h3>Воск</h3></div>
-        <ul>
-          <li>Тёплая умягчённая вода с воском.</li>
-          <li>Водоотталкивающий эффект — защищает кузов от загрязнений.</li>
-        </ul>
-      </article>
-      <article class="prog prog--red">
-        <span class="prog-num" aria-hidden="true">5</span>
-        <div class="prog-head"><span class="prog-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3l1.7 5.6 5.6 1.7-5.6 1.7L12 18l-1.7-5.6L4.7 10l5.6-1.4z"/></svg></span><h3>Блеск</h3></div>
-        <ul>
-          <li>Ополаскивание деминерализованной водой с сушителем.</li>
-          <li>После ополаскивания поверхность можно не вытирать.</li>
-          <li>Без белых пятен — поверхность сохнет с блеском.</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,32 C240,72 480,4 720,28 C960,52 1200,8 1440,36 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,36 C240,8 480,60 720,40 C960,20 1200,64 1440,32 L1440,70 L0,70 Z" fill="#eaf2fb"></path></svg>
 </section>
 
 <section class="sec light" id="mt" aria-labelledby="mt-h">
